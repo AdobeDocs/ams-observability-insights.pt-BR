@@ -1,23 +1,23 @@
 ---
-title: Monitoramento do desempenho de aplicativos (APM) com o Synoptryx
-description: Use o plug-in APM do Synoptryx para rastrear transações do AEM, monitorar a JVM, analisar transações e inspecionar rastreamentos de transações e serviços externos no AEM Managed Services.
+title: APM (Monitoramento de Desempenho de Aplicativo) com  [!DNL Synoptryx]
+description: Use o plug-in  [!DNL Synoptryx] APM para rastrear transações do AEM, monitorar a JVM, analisar transações, inspecionar rastreamentos de transações e serviços externos no AEM Managed Services.
 feature: Operations
 role: Admin
-source-git-commit: 883b68e3bc57ba6b55559560a967a6dbc553262a
+source-git-commit: 12876ba185fd6d155f02639fba9601a3616c7e90
 workflow-type: tm+mt
-source-wordcount: '1089'
+source-wordcount: '1078'
 ht-degree: 5%
 
 ---
 
 
-# Monitoramento do desempenho de aplicativos (APM) com o Synoptryx {#application-performance-monitoring}
+# APM (Monitoramento de Desempenho de Aplicativo) com [!DNL Synoptryx] {#application-performance-monitoring}
 
-O Monitoramento de desempenho de aplicativo (APM) do Synoptryx fornece insight histórico e em tempo real para o desempenho do Adobe Experience Manager (AEM) e a experiência do usuário final. Rastreamento de transações de ponta a ponta, gráficos e relatórios dão visibilidade do comportamento do aplicativo até o nível do código Java.
+O Monitoramento de Desempenho de Aplicativo (APM) do [!DNL Synoptryx] fornece o desempenho e a experiência do usuário final do insight em tempo real e histórico no Adobe [!DNL Experience Manager] (AEM). Rastreamento de transações de ponta a ponta, gráficos e relatórios dão visibilidade do comportamento do aplicativo até o nível do código Java.
 
-## Plug-in APM do Managed Services Synoptryx {#apm-plugin}
+## Plug-in APM [!DNL Synoptryx] do Managed Services {#apm-plugin}
 
-O AEM é executado como um aplicativo Java no Jetty com módulos OSGi Apache Felix, criados no Apache Sling e no Jackrabbit Oak. Adobe Managed Services, AEM Engineering e Synoptryx Engineering desenvolveram em conjunto instrumentação personalizada para ambientes Managed Services.
+O AEM é executado como um aplicativo Java no Jetty com módulos OSGi Apache Felix, criados no Apache Sling e no Jackrabbit Oak. O Adobe Managed Services, o AEM Engineering e o [!DNL Synoptryx] Engineering desenvolveram em conjunto a instrumentação personalizada para ambientes Managed Services.
 
 Essa instrumentação recolhe:
 
@@ -29,7 +29,7 @@ Essa instrumentação recolhe:
 
 ![Exibição do rastreamento APM do Synoptryx mostrando extensões de componentes aninhados do AEM e linha do tempo de execução para uma solicitação de página](assets/image19.png)
 
-## Uso do Synoptryx APM {#using-apm}
+## Usando o APM [!DNL Synoptryx] {#using-apm}
 
 Use o APM para encontrar problemas de aplicativos antes que eles afetem os usuários finais. Crie e publique compartilham uma base de código, mas são monitorados como **aplicativos APM separados** para que você possa analisar cada camada de maneira independente.
 
@@ -38,7 +38,7 @@ Todo ambiente do Managed Services inclui:
 - Um aplicativo APM para Autor
 - Um aplicativo APM para publicação
 
-Selecione um nome de aplicativo no Synoptryx APM para abrir sua visão geral e o painel de monitoramento.
+Selecione um nome de aplicativo no APM [!DNL Synoptryx] para abrir sua visão geral e o painel de monitoramento.
 
 ![Lista de aplicativos APM do Synoptryx mostrando os aplicativos do Author e Publish](assets/image1a.png)
 
@@ -70,7 +70,7 @@ O painel é organizado em seções expansíveis que agrupam métricas de desempe
 
 ### Descrição
 
-A seção **Visão Geral** apresenta KPIs (Indicadores-Chave de Desempenho) de alto nível resumindo o estado atual do aplicativo monitorado.
+A seção **[!UICONTROL Visão Geral]** apresenta KPIs (Indicadores-Chave de Desempenho) de alto nível resumindo o estado atual do aplicativo monitorado.
 
 Esses KPIs fornecem um resumo instantâneo da atividade do aplicativo, da taxa de transferência, do sucesso da solicitação e da experiência geral do usuário.
 
