@@ -1,76 +1,33 @@
 ---
-title: APM (Monitoramento de Desempenho de Aplicativo) com  [!DNL Synoptryx]
-description: Use o plug-in  [!DNL Synoptryx] APM para rastrear transações do AEM, monitorar a JVM, analisar transações, inspecionar rastreamentos de transações e serviços externos no AEM Managed Services.
+title: Referência do painel APM
+description: Referência painel a painel para painéis de APM de Insights de observação, incluindo capturas de tela, métricas e unidades.
 feature: Operations
 role: Admin
-source-git-commit: 12876ba185fd6d155f02639fba9601a3616c7e90
+source-git-commit: 1d54a6a398360b040221db5b2780d301722894bf
 workflow-type: tm+mt
-source-wordcount: '1078'
-ht-degree: 5%
+source-wordcount: '806'
+ht-degree: 7%
 
 ---
 
 
-# APM (Monitoramento de Desempenho de Aplicativo) com [!DNL Synoptryx] {#application-performance-monitoring}
+# Referência do painel APM {#apm-dashboard-reference}
 
-O Monitoramento de Desempenho de Aplicativo (APM) do [!DNL Synoptryx] fornece o desempenho e a experiência do usuário final do insight em tempo real e histórico no Adobe [!DNL Experience Manager] (AEM). Rastreamento de transações de ponta a ponta, gráficos e relatórios dão visibilidade do comportamento do aplicativo até o nível do código Java.
-
-## Plug-in APM [!DNL Synoptryx] do Managed Services {#apm-plugin}
-
-O AEM é executado como um aplicativo Java no Jetty com módulos OSGi Apache Felix, criados no Apache Sling e no Jackrabbit Oak. O Adobe Managed Services, o AEM Engineering e o [!DNL Synoptryx] Engineering desenvolveram em conjunto a instrumentação personalizada para ambientes Managed Services.
-
-Essa instrumentação recolhe:
-
-- **Nomeação de transação significativa** — as extensões Sling alinham nomes de transação com a estrutura da página e adicionam um atributo `requestURL` aos eventos de Insights para que você possa correlacionar URLs do Sling entre painéis.
-
-![Exibição do rastreamento APM do Synoptryx mostrando um nome de transação descritivo do AEM com rota de verificação de integridade do Sling e linha do tempo de span](assets/image19a.png)
-
-- **Instrumentação JCR** — As operações no nível do repositório (incluindo XPath e JCR-SQL2) são categorizadas e anexadas a rastreamentos de transações na seção de banco de dados do APM.
-
-![Exibição do rastreamento APM do Synoptryx mostrando extensões de componentes aninhados do AEM e linha do tempo de execução para uma solicitação de página](assets/image19.png)
-
-## Usando o APM [!DNL Synoptryx] {#using-apm}
-
-Use o APM para encontrar problemas de aplicativos antes que eles afetem os usuários finais. Crie e publique compartilham uma base de código, mas são monitorados como **aplicativos APM separados** para que você possa analisar cada camada de maneira independente.
-
-Todo ambiente do Managed Services inclui:
-
-- Um aplicativo APM para Autor
-- Um aplicativo APM para publicação
-
-Selecione um nome de aplicativo no APM [!DNL Synoptryx] para abrir sua visão geral e o painel de monitoramento.
-
-![Lista de aplicativos APM do Synoptryx mostrando os aplicativos do Author e Publish](assets/image1a.png)
-
-## Seções do painel
-
-O painel Gerenciamento de Desempenho de Aplicativos contém as seguintes seções:
-
-- Visão geral
-- Métricas RED (Taxa · Erros · Duração)
-- Tráfego
-- Latência e desempenho
-- Detalhes do erro
-- Principais Transações
-- Integridade de JVM
-- Memória JVM
-- Coleta de lixo
-
-Somente as seções mostradas abaixo estão documentadas neste guia.
+Essa referência documenta os principais painéis de APM dos Insights de observação usados no AEM Managed Services.
 
 ## Navegação do painel
 
-![Navegação no painel](assets/apm/1_opening_screen.png)
+![Navegação no painel](../assets/apm/1_opening_screen.png)
 
 O painel é organizado em seções expansíveis que agrupam métricas de desempenho do aplicativo relacionadas. Expandir uma seção revela um ou mais gráficos associados a essa categoria.
 
 ## Visão geral
 
-![Visão geral](assets/apm/1.1_apm_overview.png)
+![Visão geral](../assets/apm/1.1_apm_overview.png)
 
 ### Descrição
 
-A seção **[!UICONTROL Visão Geral]** apresenta KPIs (Indicadores-Chave de Desempenho) de alto nível resumindo o estado atual do aplicativo monitorado.
+A seção **Visão Geral** apresenta KPIs (Indicadores-Chave de Desempenho) de alto nível resumindo o estado atual do aplicativo monitorado.
 
 Esses KPIs fornecem um resumo instantâneo da atividade do aplicativo, da taxa de transferência, do sucesso da solicitação e da experiência geral do usuário.
 
@@ -144,7 +101,7 @@ A metodologia RED mede três características principais de um pedido:
 
 ### Taxa de solicitações
 
-![Taxa de Solicitação](assets/apm/2_red_metrics_request_rate.png)
+![Taxa de Solicitação](../assets/apm/2_red_metrics_request_rate.png)
 
 #### Descrição
 
@@ -171,7 +128,7 @@ req_min
 
 ### Taxa de erro
 
-![Taxa de erro](assets/apm/3_error_rate.png)
+![Taxa de erro](../assets/apm/3_error_rate.png)
 
 #### Descrição
 
@@ -199,7 +156,7 @@ error_pct (1h ago)
 
 ### Duração da solicitação
 
-![Duração da Solicitação](assets/apm/4_request_duration_p50_p95.png)
+![Duração da Solicitação](../assets/apm/4_request_duration_p50_p95.png)
 
 #### Descrição
 
@@ -242,7 +199,7 @@ Para cada percentil:
 
 ### Solicitações por código de status HTTP
 
-![Solicitações por código de status](assets/apm/5_requests_by_status_code.png)
+![Solicitações por código de status](../assets/apm/5_requests_by_status_code.png)
 
 #### Descrição
 
@@ -277,7 +234,7 @@ dependendo da atividade do aplicativo.
 
 ### Taxa de solicitações por ponto de extremidade
 
-![Taxa de Solicitação por Ponto de Extremidade](assets/apm/6_request_rate_by_end_point.png)
+![Taxa de Solicitação por Ponto de Extremidade](../assets/apm/6_request_rate_by_end_point.png)
 
 #### Descrição
 
@@ -306,7 +263,7 @@ endpoint_request_rate
 
 ### Tempo de resposta — P95 versus 1 hora
 
-![Tempo de resposta P95](assets/apm/7_response_time_p95_1h.png)
+![Tempo de resposta P95](../assets/apm/7_response_time_p95_1h.png)
 
 #### Descrição
 
@@ -334,7 +291,7 @@ P95 (1 Hour Ago)
 
 ### Pontuação APDEX ao longo do tempo
 
-![APDEX](assets/apm/8_apdex_score_overtime.png)
+![APDEX](../assets/apm/8_apdex_score_overtime.png)
 
 #### Descrição
 
@@ -360,7 +317,7 @@ APDEX Score
 
 ### Taxa de transferência vs latência P95
 
-![Taxa de transferência vs. latência](assets/apm/9_throughput_vs_p95latency.png)
+![Taxa de transferência vs. latência](../assets/apm/9_throughput_vs_p95latency.png)
 
 #### Descrição
 
@@ -392,7 +349,7 @@ P95 Latency
 
 ### % de Taxa de Erro por Grupo de Status
 
-![Taxa de Erros por Grupo de Status](assets/apm/10_error_rate_pct_by_status_group.png)
+![Taxa de Erros por Grupo de Status](../assets/apm/10_error_rate_pct_by_status_group.png)
 
 #### Descrição
 
@@ -424,10 +381,9 @@ dependendo do tráfego observado.
 - Porcentagem média de erros
 - Tendência de série temporal
 
-
 ### Tendência da taxa de erro — Agora versus 1 hora atrás
 
-![Taxa de Erro 1 Hora](assets/apm/11_error_ratio_trend_1h.png)
+![Taxa de Erro 1 Hora](../assets/apm/11_error_ratio_trend_1h.png)
 
 #### Descrição
 
@@ -452,7 +408,7 @@ Current Error Ratio
 
 ### Tendência da taxa de erro — Agora versus 6 horas atrás
 
-![Taxa de Erro 6 Horas](assets/apm/12_error_ratio_trend_6h.png)
+![Taxa de Erro 6 Horas](../assets/apm/12_error_ratio_trend_6h.png)
 
 #### Descrição
 

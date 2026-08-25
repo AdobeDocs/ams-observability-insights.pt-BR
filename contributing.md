@@ -1,13 +1,13 @@
 ---
-source-git-commit: 43317991c712a8ee9fe721f2635f5ebd5dd0274e
+source-git-commit: e94c1ec35b136696b886ad386a99171879f8a36e
 workflow-type: tm+mt
-source-wordcount: '495'
+source-wordcount: '487'
 ht-degree: 1%
 
 ---
-# Contribuição na documentação do Adobe Experience Manager Cloud Service
+# Contribuir com a documentação do
 
-Agradecemos sua colaboração com a documentação do Adobe Experience Manager Cloud Service. A Equipe de documentação agradece as contribuições de conteúdo de toda a comunidade de leitores e de outros funcionários da Adobe.
+Agradecemos sua colaboração em nossa documentação. A Equipe de documentação agradece as contribuições de conteúdo de toda a comunidade de leitores e de outros funcionários da Adobe.
 
 Esse arquivo descreve como você pode contribuir e aponta as diretrizes que devem ser seguidas ao fazer suas contribuições.
 
