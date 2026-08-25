@@ -3,9 +3,9 @@ title: Perguntas frequentes
 description: Perguntas comuns e pontos de partida de investigação para Insights de capacidade de observação no AEM Managed Services.
 feature: Operations
 role: Admin
-source-git-commit: 3e9cd3734665dc06a4b90902b229dffb8f5421df
+source-git-commit: 68b80f99e8be9deed37ea857d1dc7cb0ba3ec94d
 workflow-type: tm+mt
-source-wordcount: '216'
+source-wordcount: '186'
 ht-degree: 0%
 
 ---
@@ -26,13 +26,6 @@ Isso normalmente indica um problema com o provisionamento do usuário. Entre em 
 ## Como posso determinar se um problema está relacionado a aplicativos ou infraestrutura? {#application-or-infrastructure}
 
 Comece com [Monitoramento do Desempenho de Aplicativos](/help/applications.md) para analisar taxas de solicitação, taxas de erro e latência em Autor ou Publicação. Se os sinais do aplicativo estiverem elevados, use [Hosts](/help/hosts.md) para verificar se a pressão de recursos no nível do host (CPU, memória, disco ou rede) explica ou compõe o que você está vendo.
-
-## Como devo entender um gráfico ou métrica específica? {#understand-graph-or-metric}
-
-Use as páginas de referência do painel para obter descrições painel a painel, nomes de métricas, unidades e capturas de tela:
-
-- [Referência do painel APM](../reference/apm-dashboard-reference.md)
-- [Referência do painel de infraestrutura](../reference/infrastructure-dashboard-reference.md)
 
 ## Quais dados os Insights de observação realmente coletam? {#what-data-is-collected}
 
