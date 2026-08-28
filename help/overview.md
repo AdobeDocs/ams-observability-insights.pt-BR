@@ -3,9 +3,9 @@ title: Monitore seu ambiente do AEM Managed Services com Insights de capacidade 
 description: Comece aqui para entender o que os Insights de observação abordam no AEM Managed Services, para quem ele serve e como navegar pelo restante deste guia.
 feature: Operations
 role: Admin
-source-git-commit: 90ca53475d23dd9b3100236d899d3941f717edbd
+source-git-commit: fc38d43e53a366fb16151f3bd105b561f55fcbfa
 workflow-type: tm+mt
-source-wordcount: '744'
+source-wordcount: '741'
 ht-degree: 0%
 
 ---
@@ -18,14 +18,6 @@ Os **Insights de capacidade de observação** oferecem visibilidade sobre o dese
 Se você for responsável pela confiabilidade do serviço, resposta a incidentes ou análise de desempenho, os **Insights de capacidade de observação** ajudam a passar rapidamente dos sintomas para as evidências. Ele combina telemetria de aplicativos e sinais de integridade no nível do host para que as equipes do cliente e a Adobe possam investigar problemas de uma visualização operacional compartilhada.
 
 ## Whitepaper de Insights de Observabilidade
-
-<iframe
-  src="v2-assets/Observability_Insights_Overview.pdf"
-  title="Whitepaper de Insights de Observabilidade"
-  width="100%"
-  height="800"
-  style="border: 0;"
-></iframe>
 
 [Baixe o white paper de Insights de observação](v2-assets/Observability_Insights_Overview.pdf)
 
