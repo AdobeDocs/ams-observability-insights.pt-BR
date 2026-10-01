@@ -1,10 +1,12 @@
 ---
-source-git-commit: e5523081fcd68500602e5d1bf853694d1f6c3980
+title: API pública dos Insights de capacidade de observação
+description: A API pública do Observability Insights permite que você insira seus próprios dados de observabilidade — visões gerais de solicitações, catálogos de serviço, rastreamentos e métricas — diretamente em suas próprias ferramentas, scripts e painéis.
+source-git-commit: f9361af48539ab50bcde6265963247714621c0ce
 workflow-type: tm+mt
-source-wordcount: '1104'
+source-wordcount: '1135'
 ht-degree: 7%
-
 ---
+
 # API pública dos Insights de capacidade de observação
 
 A API pública do Observability Insights permite que você insira seus próprios dados de observabilidade — visões gerais de solicitações, catálogos de serviço, rastreamentos e métricas — diretamente em suas próprias ferramentas, scripts e painéis.
@@ -14,8 +16,6 @@ A API pública do Observability Insights permite que você insira seus próprios
 - **Autenticação:** chave de API (token de portador)
 
 > Substitua `{{API_BASE_URL}}` em todo este documento pelo host da API da instância do Observability Insights, por exemplo, `https://insights.adobecqms.net/`.
-
-&#x200B;---
 
 ## &#x200B;1. Obter uma chave de API
 
@@ -48,7 +48,6 @@ A seção Chaves de API lista todas as chaves criadas, incluindo a organização
 - Gire as chaves periodicamente e revogue qualquer chave que não esteja mais em uso.
 - Se uma chave estiver comprometida, revogue-a imediatamente de **Configurações da Organização → Chaves da API** e gere uma substituição.
 
-&#x200B;---
 
 ## &#x200B;2. Solicitações de autenticação
 
@@ -59,8 +58,6 @@ Authorization: Bearer synx_9pQ2v6f1WYbLZk3n0aRtEo4jXcHsVmDgUiPq7B8l1yc
 ```
 
 Solicitações sem uma chave válida ou com uma chave expirada/revogada recebem `401 Unauthorized`. Os logons da sessão (cookies/tokens do navegador) **não** foram aceitos nesta API.
-
-&#x200B;---
 
 ## &#x200B;3. Conceitos básicos
 
@@ -110,8 +107,6 @@ Os erros são retornados como JSON com um campo `error` e, geralmente, um `messa
 | `429 Too Many Requests` | Limite de taxa excedido — consulte `Retry-After` |
 | `502 Bad Gateway` | Falha na consulta upstream — é seguro tentar novamente |
 | `503 Service Unavailable` | Infraestrutura de dados temporariamente indisponível |
-
-&#x200B;---
 
 ## &#x200B;4. Pontos de acesso
 
@@ -347,15 +342,11 @@ curl -s "{{API_BASE_URL}}/public/v1/pages?tenant_id=<tenant_id>&limit=50" \
 }
 ```
 
-&#x200B;---
-
 ## &#x200B;5. O que essa API não faz
 
 - **Nenhum acesso SQL bruto.** Todos os endpoints retornam formas de dados selecionadas e criadas com propósitos específicos; não é possível consultar diretamente o armazenamento de dados subjacente.
 - **Nenhuma consulta entre locatários.** Cada solicitação tem como escopo exatamente um `tenant_id`.
 - **Sem acesso de gravação.** A API pública é somente leitura.
-
-&#x200B;---
 
 ## &#x200B;6. Suporte
 
