@@ -3,13 +3,20 @@ title: Aplicativos
 description: Os aplicativos oferecem recursos de APM (Application Performance Monitoring, monitoramento do desempenho dos aplicativos), oferecendo uma visão unificada da integridade, do desempenho, das transações e da infraestrutura subjacente que dá suporte a cada serviço.
 feature: Operations
 role: Admin
-source-git-commit: efddec659ebb1cdd22537d60ccca175680dfdab4
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
+feature_v2:
+  - id: 8a70d214-ab7b-58c1-b001-2ed2e5d6303d
+    internal-label: Operations
+role_v2:
+  - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
+    internal-label: Admin
+source-git-commit: e0cc17c9d725cad021ba99da4332bca176eae6db
 workflow-type: tm+mt
 source-wordcount: '546'
 ht-degree: 0%
-
 ---
-
 
 # Aplicativos
 

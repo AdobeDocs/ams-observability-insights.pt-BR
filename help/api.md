@@ -1,7 +1,10 @@
 ---
 title: API pública dos Insights de capacidade de observação
 description: A API pública do Observability Insights permite que você insira seus próprios dados de observabilidade — visões gerais de solicitações, catálogos de serviço, rastreamentos e métricas — diretamente em suas próprias ferramentas, scripts e painéis.
-source-git-commit: f9361af48539ab50bcde6265963247714621c0ce
+product_v2:
+  - id: fd1f54a9-f50c-467d-8956-cebbaf4f3eb8
+    internal-label: Experience Manager
+source-git-commit: e0cc17c9d725cad021ba99da4332bca176eae6db
 workflow-type: tm+mt
 source-wordcount: '1135'
 ht-degree: 7%
