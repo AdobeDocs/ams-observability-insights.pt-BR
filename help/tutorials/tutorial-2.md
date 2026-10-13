@@ -1,9 +1,12 @@
 ---
-source-git-commit: 263ba9e9b3eb1c6e4dd253ca03bd0ce8954c588b
+title: 'Tutorial 2: controlar seus dados'
+description: Saiba como filtrar, agrupar e controlar resultados da consulta em Insights de capacidade de observação.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '344'
+source-wordcount: '361'
 ht-degree: 0%
 ---
+
 ## Tutorial 2: controlar seus dados {#tutorial-2-control-your-data}
 
 Neste tutorial, você aprenderá as funções e cláusulas que transformam contagens brutas em respostas: contagens distintas, valores mais recentes, porcentagens, percentis, curingas, classificação e agrupamento multidimensional.
@@ -66,7 +69,8 @@ Médias ocultam valores atípicos. Os percentis mostram o que a maioria dos usu�
 SELECT percentile(duration, 50) AS p50, percentile(duration, 95) AS p95, percentile(duration, 99) AS p99 FROM Transaction TIMESERIES AUTO
 ```
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > As páginas p50, p95 e p99 de `Transaction.duration` são fornecidas a partir de rollups em janelas longas, portanto, permanecem rápidas para visualizações semanais.
 
 ### Tornar os resultados legíveis com rótulos
@@ -77,7 +81,8 @@ Usar `AS` com aspas simples para rótulos que contenham espaços:
 SELECT count(*) AS 'Requests', percentile(duration, 95) AS 'p95 (ms)' FROM Transaction FACET service
 ```
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > Os aliases se aplicam somente a `SELECT` itens. As colunas de facetas são sempre rotuladas com o nome do atributo.
 
 ### Combinar padrões e listas
@@ -100,7 +105,8 @@ Corresponder com uma lista com `IN` e `NOT IN` (até 100 valores):
 SELECT count(*) AS requests FROM Transaction WHERE http.method IN ('POST', 'PUT', 'DELETE') FACET service
 ```
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > O SQL não tem expressões regulares (`RLIKE`). Combine `LIKE` padrões com `OR` ou use `IN`.
 
 ### Classificar e classificar com `ORDER BY`
@@ -117,7 +123,8 @@ Ou os serviços menos usados primeiro:
 SELECT count(*) AS requests FROM Transaction FACET service ORDER BY requests ASC LIMIT 10
 ```
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > Não há `HAVING`. Para localizar apenas operações &quot;ocupadas&quot;, classifique por `requests` e mantenha os N principais, ou adicione um `WHERE` que remova o ruído (por exemplo, `WHERE http.method != 'OPTIONS'`).
 
 ### Agrupar por vários atributos

@@ -1,9 +1,12 @@
 ---
-source-git-commit: 4949fcad799260aa73354a8c0b9d79e6394cb257
+title: Referência SQL
+description: Faça referência à sintaxe SQL, às cláusulas e às funções compatíveis com os Insights de capacidade de observação.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '1479'
+source-wordcount: '1492'
 ht-degree: 9%
 ---
+
 ## Referência SQL {#sql-reference}
 
 Essa referência abrange sintaxe SQL, cláusulas, funções e operadores. Expanda cada entrada para obter detalhes e exemplos.
@@ -28,7 +31,8 @@ FROM   <Entity>
 <unit>        := second | seconds | minute | minutes | hour | hours | day | days | week | weeks
 ```
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > As `--` anotações acima são somente documentação. O próprio SQL não aceita comentários.
 
 ### Cláusulas obrigatórias
@@ -154,7 +158,8 @@ SELECT count(*) AS total, count(*) FILTER (WHERE status = 'Error') AS errors, pe
 SELECT count(*) FROM Transaction FACET urlPath LIMIT 50
 ```
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > Sempre defina um `LIMIT` em variáveis orientadas por consulta e em aspectos de alta cardinalidade (`urlPath`, `traceId`, `jcr.path`, `url`).
 
 </details>
@@ -194,7 +199,8 @@ SELECT count(*) FROM Transaction SINCE 6 hours ago
 - A janela não pode exceder **31 dias** (_O intervalo de tempo não pode exceder 31 dias_).
 - Datas absolutas (`SINCE '2026-01-01'`) e `TODAY` / `YESTERDAY` não são suportadas.
 
-&#x200B;> [!IMPORTANT]
+>[!IMPORTANT]
+>
 > Nos painéis e em Explorar, o **seletor de tempo substitui** `SINCE` e `UNTIL`. Consulte [Prioridade de janela de tempo](#time-window-precedence).
 
 </details>
@@ -224,7 +230,8 @@ SELECT percentile(duration, 95) AS p95 FROM Transaction TIMESERIES AUTO
 SELECT count(*) FROM Transaction TIMESERIES 1 hour SINCE 1 day ago
 ```
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > Prefira `AUTO` nos painéis. Mantém cerca de 120 pontos o que quer que o seletor de tempo diga. Também evita linhas &quot;quebradas&quot; por host, pois as métricas do host são raspadas a cada 90 segundos.
 
 </details>
@@ -434,7 +441,8 @@ SELECT rate(value) AS bytesPerSec FROM NetworkReceiveRate FACET host TIMESERIES 
 - Funciona somente em entidades de contador (marcado ✔ no [Dicionário de dados](#53-curated-metric-entities)).
 - Requer `TIMESERIES`, e deve ser a agregação **only**. `FILTER` não é permitido.
 
-&#x200B;> [!WARNING]
+>[!WARNING]
+>
 > Sempre `FACET host`, ou filtrar para um único host. Um `rate()` não facetado em vários hosts compara contadores de hosts diferentes e produz números sem sentido. Os contadores de disco são por dispositivo, portanto, `FACET host, device` é o mais preciso.
 
 </details>
@@ -508,14 +516,16 @@ Acesso rápido às restrições de função:
 SELECT count(*) FROM Transaction WHERE (status = 'Error' OR duration > 2000) AND NOT host LIKE '%dispatcher%' AND http.method IN ('GET', 'POST')
 ```
 
-&#x200B;> [!WARNING]
+>[!WARNING]
+>
 > `attr = NULL` é um erro. Usar `attr IS NULL`.
 
 ### Manuseio de tipo: em branco vs. NULL
 
 Cada atributo tem um tipo no catálogo: `string`, `number`, `boolean` ou `timestamp`. As funções de verificação de tipo SQL em relação a ele (por exemplo, `average(service)` foi rejeitado). Nenhuma função de conversão do tipo é necessária ou está disponível.
 
-&#x200B;> [!IMPORTANT]
+>[!IMPORTANT]
+>
 > **Em branco vs. NULL.** A maioria dos atributos de cadeia de caracteres vem de mapas de atributos OpenTelemetry, onde uma chave _ausente_ é lida como uma cadeia de caracteres vazia `''`, não `NULL`. Para manter somente os spans que possuem um atributo, use **`attr != ''`** em vez de `IS NOT NULL`. Atributos numéricos como `http.statusCode` são genuinamente `NULL` quando ausentes, então `IS NOT NULL` funciona para eles.
 
 ```sql

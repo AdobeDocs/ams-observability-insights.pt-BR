@@ -1,9 +1,12 @@
 ---
-source-git-commit: 05ed98c07602488843c52cd262af2d8cc204fef1
+title: Introdução a gráficos e painéis
+description: Saiba como visualizar dados do Observability Insights com gráficos e painéis.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '292'
-ht-degree: 2%
+source-wordcount: '309'
+ht-degree: 1%
 ---
+
 ## Gráficos e painéis: visualização de dados {#charts-and-dashboards-visualizing-your-data}
 
 As consultas encontram as informações necessárias. Gráficos e painéis tornam essas informações úteis para a sua organização. Este documento mostra como os resultados de SQL se tornam gráficos e como criar, organizar e compartilhar painéis.

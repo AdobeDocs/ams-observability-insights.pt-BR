@@ -1,9 +1,12 @@
 ---
-source-git-commit: 263ba9e9b3eb1c6e4dd253ca03bd0ce8954c588b
+title: 'Tutorial 1: Suas primeiras consultas'
+description: Escreva suas primeiras consultas SQL com base na telemetria do Observability Insights.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '562'
+source-wordcount: '576'
 ht-degree: 0%
 ---
+
 ## Tutorial 1: Suas primeiras consultas {#tutorial-1-your-first-queries}
 
 Bem-vindo ao SQL. Neste tutorial, você escreverá suas primeiras consultas, controlará a janela de tempo, plotará tendências, filtrará e agrupará resultados e colocará seu primeiro gráfico em um painel. Cada etapa se baseia na anterior.
@@ -32,7 +35,8 @@ SELECT timestamp, service, name, duration FROM Transaction LIMIT 10
 
 As linhas são classificadas pela primeira coluna, em ordem decrescente, portanto, colocar `timestamp` primeiro fornece as solicitações mais recentes na parte superior.
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > O SQL não tem `SELECT *`. Os atributos de listagem mantêm os resultados pequenos e legíveis. O [Dicionário de dados](#data-dictionary) e o preenchimento automático no editor mostram o que está disponível.
 
 ### Agregar seus dados
@@ -65,7 +69,8 @@ Separe as agregações com vírgulas e nomeie cada uma com `AS`:
 SELECT count(*) AS requests, average(duration) AS avgMs, max(duration) AS maxMs FROM Transaction
 ```
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > Os aliases se tornam cabeçalhos de coluna e rótulos de legenda, e são o que você menciona em `ORDER BY`. Aprenda a nomear cada agregado.
 
 ### Definir a janela de tempo
@@ -84,7 +89,8 @@ SELECT count(*) AS requests FROM Transaction SINCE 2 days ago UNTIL 1 day ago
 
 As unidades podem ser `second`, `minute`, `hour`, `day` ou `week`. A janela pode ter no máximo 31 dias.
 
-&#x200B;> [!IMPORTANT]
+>[!IMPORTANT]
+>
 > No **Explorar** e nos **painéis**, o **seletor de horas** na parte superior da página controla a janela e substitui `SINCE`/`UNTIL`. Para observar outro ponto, altere o seletor. O restante deste guia deixa `SINCE` fora das consultas do painel por esse motivo.
 
 ### Plotar tendências com `TIMESERIES`
@@ -121,7 +127,8 @@ Usar `LIKE` com `%` para correspondências parciais:
 SELECT count(*) AS contentRequests FROM Transaction WHERE urlPath LIKE '/content/%'
 ```
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > Os valores da cadeia de caracteres diferenciam maiúsculas de minúsculas e usam aspas simples: `'Error'`, não `"Error"` ou `'error'`. Substitua `checkout` com um serviço de seu locatário. A próxima etapa mostra como listá-los.
 
 ### Agrupar com `FACET`

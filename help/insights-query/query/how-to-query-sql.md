@@ -1,9 +1,12 @@
 ---
-source-git-commit: d3cd77e213674587152d6d33efa65328f420a547
+title: Como consultar com SQL
+description: Saiba como escrever e executar consultas SQL em Observability Insights.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '538'
+source-wordcount: '554'
 ht-degree: 0%
 ---
+
 ## Como consultar com SQL: os mecanismos de consulta {#how-to-query-with-sql-the-mechanics-of-querying}
 
 Antes de usar qualquer ferramenta, é útil saber como ela funciona. Este documento mostra como explorar seus dados, explica o que acontece quando uma consulta é executada e aborda exemplos de consultas simples a complexas.
@@ -12,7 +15,8 @@ Antes de usar qualquer ferramenta, é útil saber como ela funciona. Este docume
 
 A melhor maneira de usar o SQL é abrir o **Explorar** e experimentá-lo em seus próprios dados.
 
-&#x200B;> [!TIP]
+>[!TIP]
+>
 > SQL é somente leitura. Ele não pode alterar ou excluir dados, e cada consulta tem escopo para seu locatário.
 
 1. **Escolha um cliente** no alternador de locatário na parte superior do aplicativo; o SQL precisa de um único locatário.
@@ -37,7 +41,8 @@ FROM Transaction SELECT count(*) FACET service
 
 Isso conta solicitações por serviço, o que mostra quais serviços estão sendo relatados.
 
-&#x200B;> [!IMPORTANT]
+>[!IMPORTANT]
+>
 > **Descubra antes de compilar.** A disponibilidade de atributos depende de como cada serviço é instrumentado. Execute as [consultas de descoberta](#101-data-discovery) em um novo locatário primeiro para ver quais serviços, hosts, atributos e métricas realmente contêm dados.
 
 ### Como uma consulta é executada
@@ -87,5 +92,6 @@ Cada consulta retorna uma das quatro formas. A forma decide quais gráficos faze
 | **Explorar** | O seletor de tempo global. `SINCE`/`UNTIL` são ignorados quando um intervalo do seletor está ativo. |
 | **API sem um intervalo explícito** | `SINCE`/`UNTIL` na consulta, padronizando para a última hora. |
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > Como o seletor ganha nos painéis e em Explorar, este guia geralmente deixa `SINCE` fora das consultas do painel. Deve-se sempre definir um seletor de tempo para as consultas.

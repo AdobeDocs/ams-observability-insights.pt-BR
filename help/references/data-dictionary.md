@@ -1,9 +1,12 @@
 ---
-source-git-commit: 4949fcad799260aa73354a8c0b9d79e6394cb257
+title: Dicionário de dados
+description: Faça referência às entidades e atributos disponíveis para consultas SQL de Insights de observação.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '585'
+source-wordcount: '598'
 ht-degree: 20%
 ---
+
 ## Dicionário de dados {#data-dictionary}
 
 Isso é cada entidade e atributo que você pode consultar. O catálogo ao vivo, com descrições, também está no painel **Guia de consulta** em Explorar e na caixa de diálogo Adicionar widget.
@@ -109,7 +112,8 @@ Cada entidade com curadoria envolve uma métrica OpenTelemetry com o filtro e a 
 | `JvmCpuRecentUtilization` | CPU do processo JVM | % |         | Acúmulo de 1 minuto |
 | `DispatcherRequestRate` | Solicitações HTTP do AEM Dispatcher | solic./s | ✔ |                                              |
 
-&#x200B;> [!NOTE]
+>[!NOTE]
+>
 > As métricas de memória JVM são relatadas **por pool de memória**, portanto, `average(value)` em `JvmHeapUsed` / `JvmHeapLimit` médias entre pools. Use `FACET host, pool` para uma exibição exata por pool.
 
 ### `SpanBreakdown`: composição de transação pré-agregada

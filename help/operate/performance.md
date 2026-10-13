@@ -1,9 +1,12 @@
 ---
-source-git-commit: ec98f6bd132cadaba1da7c4fb727d7e031790645
+title: Desempenho
+description: Melhore o desempenho da consulta, do gráfico e do painel em Insights de capacidade de observação.
+source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
 workflow-type: tm+mt
-source-wordcount: '217'
-ht-degree: 2%
+source-wordcount: '227'
+ht-degree: 3%
 ---
+
 ## Desempenho {#performance}
 
 Cada consulta é executada com um tempo limite de 15 segundos e um orçamento de leitura de bytes. Este documento explica como o Observability Insights acelera consultas automaticamente e como projetar painéis que permanecem rápidos em qualquer intervalo de tempo.
