@@ -109,7 +109,7 @@ Cada entidade com curadoria envolve uma métrica OpenTelemetry com o filtro e a 
 | `JvmCpuRecentUtilization` | CPU do processo JVM | % |         | Acúmulo de 1 minuto |
 | `DispatcherRequestRate` | Solicitações HTTP do AEM Dispatcher | solic./s | ✔ |                                              |
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > As métricas de memória JVM são relatadas **por pool de memória**, portanto, `average(value)` em `JvmHeapUsed` / `JvmHeapLimit` médias entre pools. Use `FACET host, pool` para uma exibição exata por pool.
 
 ### `SpanBreakdown`: composição de transação pré-agregada

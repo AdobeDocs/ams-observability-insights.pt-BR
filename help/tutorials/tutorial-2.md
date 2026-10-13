@@ -66,7 +66,7 @@ Médias ocultam valores atípicos. Os percentis mostram o que a maioria dos usu�
 SELECT percentile(duration, 50) AS p50, percentile(duration, 95) AS p95, percentile(duration, 99) AS p99 FROM Transaction TIMESERIES AUTO
 ```
 
-> [!TIP]
+&#x200B;> [!TIP]
 > As páginas p50, p95 e p99 de `Transaction.duration` são fornecidas a partir de rollups em janelas longas, portanto, permanecem rápidas para visualizações semanais.
 
 ### Tornar os resultados legíveis com rótulos
@@ -77,7 +77,7 @@ Usar `AS` com aspas simples para rótulos que contenham espaços:
 SELECT count(*) AS 'Requests', percentile(duration, 95) AS 'p95 (ms)' FROM Transaction FACET service
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > Os aliases se aplicam somente a `SELECT` itens. As colunas de facetas são sempre rotuladas com o nome do atributo.
 
 ### Combinar padrões e listas
@@ -100,7 +100,7 @@ Corresponder com uma lista com `IN` e `NOT IN` (até 100 valores):
 SELECT count(*) AS requests FROM Transaction WHERE http.method IN ('POST', 'PUT', 'DELETE') FACET service
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > O SQL não tem expressões regulares (`RLIKE`). Combine `LIKE` padrões com `OR` ou use `IN`.
 
 ### Classificar e classificar com `ORDER BY`
@@ -117,7 +117,7 @@ Ou os serviços menos usados primeiro:
 SELECT count(*) AS requests FROM Transaction FACET service ORDER BY requests ASC LIMIT 10
 ```
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Não há `HAVING`. Para localizar apenas operações &quot;ocupadas&quot;, classifique por `requests` e mantenha os N principais, ou adicione um `WHERE` que remova o ruído (por exemplo, `WHERE http.method != 'OPTIONS'`).
 
 ### Agrupar por vários atributos

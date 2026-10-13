@@ -12,7 +12,7 @@ Antes de usar qualquer ferramenta, é útil saber como ela funciona. Este docume
 
 A melhor maneira de usar o SQL é abrir o **Explorar** e experimentá-lo em seus próprios dados.
 
-> [!TIP]
+&#x200B;> [!TIP]
 > SQL é somente leitura. Ele não pode alterar ou excluir dados, e cada consulta tem escopo para seu locatário.
 
 1. **Escolha um cliente** no alternador de locatário na parte superior do aplicativo; o SQL precisa de um único locatário.
@@ -37,7 +37,7 @@ FROM Transaction SELECT count(*) FACET service
 
 Isso conta solicitações por serviço, o que mostra quais serviços estão sendo relatados.
 
-> [!IMPORTANT]
+&#x200B;> [!IMPORTANT]
 > **Descubra antes de compilar.** A disponibilidade de atributos depende de como cada serviço é instrumentado. Execute as [consultas de descoberta](#101-data-discovery) em um novo locatário primeiro para ver quais serviços, hosts, atributos e métricas realmente contêm dados.
 
 ### Como uma consulta é executada
@@ -87,5 +87,5 @@ Cada consulta retorna uma das quatro formas. A forma decide quais gráficos faze
 | **Explorar** | O seletor de tempo global. `SINCE`/`UNTIL` são ignorados quando um intervalo do seletor está ativo. |
 | **API sem um intervalo explícito** | `SINCE`/`UNTIL` na consulta, padronizando para a última hora. |
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > Como o seletor ganha nos painéis e em Explorar, este guia geralmente deixa `SINCE` fora das consultas do painel. Deve-se sempre definir um seletor de tempo para as consultas.

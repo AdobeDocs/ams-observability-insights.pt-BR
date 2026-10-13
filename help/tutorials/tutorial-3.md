@@ -38,7 +38,7 @@ SELECT rate(value) AS rxBytesPerSec FROM NetworkReceiveRate FACET host TIMESERIE
 SELECT rate(value) AS writeBytesPerSec FROM DiskWriteRate FACET host, device TIMESERIES AUTO LIMIT 10
 ```
 
-> [!WARNING]
+&#x200B;> [!WARNING]
 > Sempre encare `rate()` por `host` (e por `device` para discos) ou filtre para um host. Sem isso, as leituras de diferentes hosts se misturam e o resultado é sem sentido.
 
 Para obter uma taxa de **solicitação** dos rastreamentos, conte as solicitações em compartimentos fixos. Isso fornece solicitações por minuto:
@@ -146,7 +146,7 @@ Regras para consultas de fórmula:
 | Uma métrica cada | Cada consulta retorna exatamente uma agregação e nenhuma `FACET` |
 | Dados ausentes | Um valor ausente ou uma divisão por zero produz um ponto vazio, nunca `Infinity` ou `NaN` |
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Use `TIMESERIES AUTO` em cada consulta de uma fórmula de série temporal. Como os queries compartilham uma janela, eles sempre são resolvidos para o mesmo tamanho de bucket.
 
 ### Torne os painéis reutilizáveis com variáveis
@@ -187,8 +187,8 @@ SELECT count(*) FROM Transaction FACET service LIMIT 200
 
 As opções são atualizadas quando o locatário ou o seletor de hora é alterado e são classificadas em ordem alfabética. Quando a seleção atual não é mais válida, o primeiro valor (seleção única) ou todos os valores (seleção múltipla) são selecionados automaticamente. A consulta de uma variável não pode fazer referência a outras variáveis.
 
-> [!WARNING]
-> **Limitação de compilação atual.** Ocorre substituição na grade do painel, mas a visualização do **Adicionar widget** e a **verificação de salvamento do lado do servidor** recebem o token `{{name}}` bruto e o rejeitam com _Caractere inesperado &#39;{&#39;_. Na prática:
+&#x200B;> [!WARNING]
+> **Limitação de compilação atual.** Ocorre substituição na grade do painel, mas a visualização do **Adicionar widget** e a **verificação de salvamento do lado do servidor** recebem o token `{{name}}` bruto e o rejeitam com _Caractere inesperado &#39;&lbrace;&#39;_. Na prática:
 >
 > - `{{variables}}` em **títulos de widget** e **widgets de texto** funcionam de ponta a ponta.
 > - `{{variables}}` no **SQL do widget** é renderizado corretamente após uma **Importação**, mas o painel não pode ser **salvo** enquanto esses widgets existirem.

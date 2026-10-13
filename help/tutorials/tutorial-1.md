@@ -32,7 +32,7 @@ SELECT timestamp, service, name, duration FROM Transaction LIMIT 10
 
 As linhas são classificadas pela primeira coluna, em ordem decrescente, portanto, colocar `timestamp` primeiro fornece as solicitações mais recentes na parte superior.
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > O SQL não tem `SELECT *`. Os atributos de listagem mantêm os resultados pequenos e legíveis. O [Dicionário de dados](#data-dictionary) e o preenchimento automático no editor mostram o que está disponível.
 
 ### Agregar seus dados
@@ -65,7 +65,7 @@ Separe as agregações com vírgulas e nomeie cada uma com `AS`:
 SELECT count(*) AS requests, average(duration) AS avgMs, max(duration) AS maxMs FROM Transaction
 ```
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Os aliases se tornam cabeçalhos de coluna e rótulos de legenda, e são o que você menciona em `ORDER BY`. Aprenda a nomear cada agregado.
 
 ### Definir a janela de tempo
@@ -84,7 +84,7 @@ SELECT count(*) AS requests FROM Transaction SINCE 2 days ago UNTIL 1 day ago
 
 As unidades podem ser `second`, `minute`, `hour`, `day` ou `week`. A janela pode ter no máximo 31 dias.
 
-> [!IMPORTANT]
+&#x200B;> [!IMPORTANT]
 > No **Explorar** e nos **painéis**, o **seletor de horas** na parte superior da página controla a janela e substitui `SINCE`/`UNTIL`. Para observar outro ponto, altere o seletor. O restante deste guia deixa `SINCE` fora das consultas do painel por esse motivo.
 
 ### Plotar tendências com `TIMESERIES`
@@ -121,7 +121,7 @@ Usar `LIKE` com `%` para correspondências parciais:
 SELECT count(*) AS contentRequests FROM Transaction WHERE urlPath LIKE '/content/%'
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > Os valores da cadeia de caracteres diferenciam maiúsculas de minúsculas e usam aspas simples: `'Error'`, não `"Error"` ou `'error'`. Substitua `checkout` com um serviço de seu locatário. A próxima etapa mostra como listá-los.
 
 ### Agrupar com `FACET`

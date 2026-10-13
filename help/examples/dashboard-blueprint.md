@@ -23,7 +23,7 @@ Cada blueprint é um painel de controle completo e complexo. Ele lista a meta, a
 
 **Legenda do gráfico:** **N** = Número, **L** = Linha, **A** = Área, **B** = Barra, **P** = Pizza, **T** = Tabela.
 
----
+&#x200B;---
 
 ### Sinais dourados / placa SLO
 
@@ -120,7 +120,7 @@ SELECT average(value) AS memory FROM MemoryUtilization FACET host TIMESERIES AUT
 SELECT average(value) AS load5m FROM LoadAverage5m FACET host TIMESERIES AUTO LIMIT 10
 ```
 
----
+&#x200B;---
 
 ### Quadro de triagem de erros
 
@@ -207,7 +207,7 @@ SELECT count(*) AS failures, percentile(duration, 95) AS p95 FROM Span WHERE kin
 SELECT timestamp, service, host, name, urlPath, http.statusCode, duration, statusMessage, traceId FROM Transaction WHERE status = 'Error' LIMIT 200
 ```
 
----
+&#x200B;---
 
 ### Quadro de análise profunda de latência
 
@@ -276,7 +276,7 @@ SELECT sum(callCount) AS calls, average(avgDurationMs) AS avgMs FROM SpanBreakdo
 SELECT count(*) AS calls, max(duration) AS slowestMs, latest(traceId, duration) AS slowestTraceId, latest(host, duration) AS slowestHost FROM Transaction FACET name ORDER BY slowestMs DESC LIMIT 50
 ```
 
----
+&#x200B;---
 
 ### Quadro de dependências downstream
 
@@ -357,7 +357,7 @@ SELECT count(*) FILTER (WHERE kind = 'Producer') AS produced, count(*) FILTER (W
 SELECT count(*) AS calls, percentile(duration, 95) AS p95, percentage(*, WHERE status = 'Error') AS errorPct FROM Span WHERE rpc.system != '' FACET service, rpc.system, rpc.method ORDER BY calls DESC LIMIT 50
 ```
 
----
+&#x200B;---
 
 ### Autor do AEM / Publicar / painel do Dispatcher
 
@@ -514,7 +514,7 @@ SELECT count(*) AS calls, percentile(duration, 95) AS p95, count(*) FILTER (WHER
 SELECT percentOfTotal(duration) AS timeShare FROM Span WHERE sling.servlet != '' FACET sling.servlet LIMIT 20
 ```
 
----
+&#x200B;---
 
 ### Quadro de Capacidade de Infraestrutura
 
@@ -661,7 +661,7 @@ Fórmula:
 netRx + netTx
 ```
 
----
+&#x200B;---
 
 ### Quadro de integridade do JVM
 
@@ -733,7 +733,7 @@ Fórmula:
 (used / limit) * 100
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > Para determinar o escopo de uma fórmula para um host, adicione `WHERE host = 'my-publish-01'` a **ambas** consultas.
 
 **W6 · Heap usado pelo host** — L, `MB`, 6×4
@@ -766,7 +766,7 @@ SELECT average(value) AS jvmCpu FROM JvmCpuRecentUtilization FACET host TIMESERI
 SELECT latest(value) AS bytesUsed, max(value) AS peakBytes FROM MetricSum WHERE metric = 'jvm.memory.used' FACET host, pool ORDER BY peakBytes DESC LIMIT 100
 ```
 
----
+&#x200B;---
 
 ### 11.8 Placa de parede executiva/NOC
 
@@ -849,7 +849,7 @@ SELECT count(*) AS requests FROM Transaction WHERE hostTierPrefix != '' FACET ho
 
 **W10 · Nota do SLO** — Widget de texto, 12×1.
 
----
+&#x200B;---
 
 ### Proporções e espaço livre (vitrine de fórmula)
 
@@ -995,13 +995,13 @@ Fórmula (taxa de gravação: 1,0 = consumindo orçamento exatamente de acordo c
 (errors / total) / 0.001
 ```
 
----
+&#x200B;---
 
 ### Service Explorer (orientado por variável)
 
 **Meta:** um painel que qualquer equipe pode apontar para _seu_ serviço e ambiente.
 
-> [!WARNING]
+&#x200B;> [!WARNING]
 > Veja a **limitação de compilação atual** no [Tutorial 3, etapa 8.7](#87-make-dashboards-reusable-with-variables): `{{variables}}` dentro do widget SQL ainda não pode ser visualizado ou salvo. Até que isso seja corrigido, substitua cada `{{…}}` por um literal (por exemplo, `'checkout'`) e use _Duplicate_ para clonar o quadro por serviço. O design abaixo está pronto para quando a substituição for completamente compatível.
 
 **Variáveis**

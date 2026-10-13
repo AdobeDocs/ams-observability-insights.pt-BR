@@ -10,7 +10,7 @@ O guia é uma biblioteca de consultas prontas para uso, agrupadas por tópico. C
 
 **Neste documento:** [10.1 Descoberta de dados](#101-data-discovery) · [10.2 Taxa de transferência](#102-throughput) · [10.3 Latência](#103-latency) · [10.4 Erros](#104-errors) · [10.5 Apdex](#105-apdex--user-experience) · [10.6 Serviços e hosts](#106-services-hosts--instances) · [10.7 Dependências](#107-downstream-dependencies) · [10.8 AEM](#108-aem-adobe-experience-manager) · [10.9 Infraestrutura](#109-infrastructure) · [10.10 JVM](#1010-jvm--runtime)
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Substitua valores de exemplo como `'checkout'` ou `'web-publish-01'` por valores reais do seu locatário. As consultas de descoberta de dados abaixo as listam.
 
 ### Descoberta de dados
@@ -385,7 +385,7 @@ SELECT average(value) AS cpu FROM CpuUtilization FACET host TIMESERIES AUTO
 SELECT average(value) AS userPct FROM CpuUserPercent TIMESERIES AUTO
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > O SQL lê uma entidade por consulta, portanto, o usuário/sistema/iowait/roubo precisa de quatro widgets lado a lado (consulte [blueprint 11.6](#116-infrastructure-capacity-board) W7-W10). Uma Fórmula iria recolhê-los em um número, não quatro séries.
 
 **Barra** — CPU p95 por host:

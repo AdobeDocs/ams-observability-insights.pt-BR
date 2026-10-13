@@ -36,7 +36,7 @@ ht-degree: 1%
 | **Grade** | 12 colunas Arraste os widgets pela alça, redimensione a partir do canto (mínimo 2×2). |
 | **Cabeçalho do widget** (ao passar o mouse) | Baixar CSV, Baixar PNG, Editar, Duplicar, Remover, arrastar alça |
 
-> [!IMPORTANT]
+&#x200B;> [!IMPORTANT]
 > **Salvar é explícito.** Alterações de layout, novos widgets, guias e variáveis permanecem no navegador até que você clique em **Salvar**. O botão mostra _Salvando... → Salvo_, ou _Falha ao salvar_ (consulte [Solução de problemas](#troubleshooting)).
 
 #### Etapa 4: adicionar um widget
@@ -60,7 +60,7 @@ Clique em **Adicionar widget**. A caixa de diálogo tem três modos: **Consulta 
 3. Use o painel **Guia de consulta** para procurar entidades, atributos e exemplos.
 4. Clique em **Executar consulta**. Você verá que a consulta _`<Entity>`é válida_, uma visualização ao vivo e um resumo (`N rows · N time points · N groups`). Um aviso de _Série esparsa_ é exibido quando há menos de três pontos de tempo.
 
-> [!TIP]
+&#x200B;> [!TIP]
 > O Construtor aborda as consultas mais comuns. Alternar para SQL para `apdex`, `percentage`, `rate`, `FILTER`, várias agregações, `OR`, `IN`, várias facetas ou `ORDER BY`.
 
 #### Etapa 5: configurar a aparência
@@ -96,7 +96,7 @@ Quando a linha única de um widget Número carrega um valor de texto (por exempl
 - **Observação**: texto simples (até 4.000 caracteres, linhas em branco preservadas). Use-o para links runbook, proprietários e definições de SLO. `{{variables}}` são renderizados.
 - **Cabeçalho da seção**: marque _Transformar em cabeçalho de seção_. Ela expande a largura total e sua divisa recolhe todos os widgets abaixo dela até o próximo cabeçalho da seção. Use-o para agrupamentos como **PUBLISH**, **AUTHOR** e **DISPATCHER**.
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Os títulos de widget que terminam em `- PUBLISH` ou `- AUTHOR` obtêm uma dica de cor sutil, o que facilita a verificação dos painéis do AEM por camada.
 
 ### O seletor de hora
@@ -112,8 +112,8 @@ Quando a linha única de um widget Número carrega um valor de texto (por exempl
 
 As variáveis permitem que um painel sirva a vários contextos, como um serviço, ambiente ou limite por vez. Eles são abordados detalhadamente no [Tutorial 3](#87-make-dashboards-reusable-with-variables).
 
-> [!WARNING]
-> **Limitação conhecida na compilação atual:** `{{variables}}` funciona no widget **títulos** e **widgets de texto**. Dentro do widget **SQL**, eles são renderizados no painel, mas a pré-visualização **Adicionar widget** e a verificação **Salvar** do lado do servidor rejeitam o token `{{name}}` bruto com _Caractere inesperado &#39;{&#39;_. Até que isso seja corrigido, use valores literais em consultas de widget e use **Duplicar** para criar variantes.
+&#x200B;> [!WARNING]
+> **Limitação conhecida na compilação atual:** `{{variables}}` funciona no widget **títulos** e **widgets de texto**. Dentro do widget **SQL**, eles são renderizados no painel, mas a pré-visualização **Adicionar widget** e a verificação **Salvar** do lado do servidor rejeitam o token `{{name}}` bruto com _Caractere inesperado &#39;&lbrace;&#39;_. Até que isso seja corrigido, use valores literais em consultas de widget e use **Duplicar** para criar variantes.
 
 ### Widgets de fórmula
 
@@ -128,7 +128,7 @@ Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(e
 | **Importar** | Carrega uma exportação JSON **no painel aberto**, substituindo suas guias e variáveis. Depois clique em **Salvar**. Dica: primeiro crie um painel vazio e, em seguida, importe para ele. |
 | **CSV / PNG** | Downloads por widget no cabeçalho do widget. |
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Exportar e importar permite que você controle a versão dos painéis no Git e promova um painel de um cliente para outro. O formato de arquivo está descrito no [Apêndice](#142-export-file-format).
 
 ### Dicas para desempenho de painéis e gráficos

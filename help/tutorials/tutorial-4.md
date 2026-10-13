@@ -64,7 +64,7 @@ Colocar um segmento em tendência ao longo do tempo:
 SELECT average(avgDurationMs) AS avgMs FROM SpanBreakdown FACET segment TIMESERIES AUTO LIMIT 8
 ```
 
-> [!NOTE]
+&#x200B;> [!NOTE]
 > `avgDurationMs` não está marcado automaticamente com uma unidade. Defina o widget **Unidade** como `ms`.
 
 ### Detectar e consultar qualquer métrica
@@ -91,7 +91,7 @@ Para ver quais **atributos span** são preenchidos para cada serviço, conte os 
 SELECT count(*) FILTER (WHERE http.route != '') AS withRoute, count(*) FILTER (WHERE db.system != '') AS dbCalls, count(*) FILTER (WHERE peer.service != '') AS withPeer, count(*) FILTER (WHERE error.type != '') AS withErrorType FROM Span FACET service LIMIT 50
 ```
 
-> [!TIP]
+&#x200B;> [!TIP]
 > Quando uma entidade com curadoria existe (por exemplo, `CpuUtilization`), prefira-a a `MetricGauge`. Ela aplica o filtro correto e a conversão de unidade, e pode ser acelerada por rollup.
 
 ### Escolher a entidade de rastreamento correta
