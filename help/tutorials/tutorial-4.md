@@ -1,17 +1,15 @@
 ---
 title: 'Tutorial 4: funções avançadas'
 description: Saiba como usar funções SQL avançadas para analisar a telemetria do Observability Insights.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 91a61d33010192cedce7d40a45ffe86f32e4824b
 workflow-type: tm+mt
-source-wordcount: '507'
+source-wordcount: '483'
 ht-degree: 1%
 ---
 
 ## Tutorial 4: funções avançadas {#tutorial-4-advanced-functions}
 
 Este tutorial aborda as funções e entidades que possibilitam investigações mais profundas: variabilidade, crescimento, pesquisas de &quot;pior exemplo&quot;, compartilhamento do total, composição de transações e métricas arbitrárias de OpenTelemetry.
-
-**Neste tutorial:** [9.1 stddev](#91-measure-consistency-with-stddev) · [9.2 derivativo](#92-spot-growth-with-derivative) · [9.3 Classificado como mais recente](#93-find-the-worst-example-with-ranked-latest) · [9.4 percentOfTotal](#94-find-where-time-goes-with-percentoftotal) · [9.5 SpanBreakdown](#95-break-down-transactions-with-spanbreakdown) · [9.6 Qualquer métrica](#96-discover-and-query-any-metric) · [9.7 Escolher a entidade](#97-choose-the-right-trace-entity) · [9.8 Agregação aninhada](#98-work-around-nested-aggregation)
 
 ### Consistência de medida com `stddev`
 
@@ -124,9 +122,9 @@ SELECT count(*) AS calls, percentage(*, WHERE status = 'Error') AS errorPct, per
 O NRQL permite agregar uma agregação com uma subconsulta, por exemplo &quot;a média dos máximos por host&quot;. O SQL não. Estas são as alternativas:
 
 | Objetivo | Abordagem SQL |
-| --------------------------------------- | ---------------------------------------------------------- |
+| --------------------------------------- | -------------------------------------------------------------------- |
 | Um valor por grupo e classifique os grupos | `FACET group` + `ORDER BY alias` + `LIMIT` |
-| Uma proporção de dois agregados | [Widget de fórmula](#86-combine-queries-with-formula-widgets) |
+| Uma proporção de dois agregados | [Widget de fórmula](tutorial-3.md#combine-queries-with-formula-widgets) |
 | Um valor por host, depois o &quot;pior host&quot; | `FACET host ORDER BY alias DESC LIMIT 1` |
 | Uma média por host ao longo do tempo | `FACET host TIMESERIES AUTO` e leia a série |
 

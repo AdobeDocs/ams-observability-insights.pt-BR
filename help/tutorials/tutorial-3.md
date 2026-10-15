@@ -1,17 +1,15 @@
 ---
 title: 'Tutorial 3: Avançar seu painel'
 description: Crie painéis com variáveis, fórmulas e vários widgets no Observability Insights.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 91a61d33010192cedce7d40a45ffe86f32e4824b
 workflow-type: tm+mt
-source-wordcount: '902'
+source-wordcount: '879'
 ht-degree: 3%
 ---
 
 ## Tutorial 3: Avançar seu painel {#tutorial-3-advance-your-dashboarding}
 
 Neste tutorial, você criará os componentes de um painel de nível de produção: pontuações de experiência do usuário, taxas de contador, agrupamento de casos, histogramas, blocos de KPI com limites, seções, widgets de fórmulas e variáveis.
-
-**Neste tutorial:** [8.1 apdex](#81-score-user-experience-with-apdex) · [8.2 rate](#82-turn-counters-into-rates-with-rate) · [8.3 Casos](#83-group-values-into-cases-with-filter) · [8.4 Histogramas](#84-build-a-latency-histogram) · [8.5 blocos de KPI e seções](#85-build-kpi-tiles-and-sections) · [8.6 Fórmulas](#86-combine-queries-with-formula-widgets) · [8.7 Variáveis](#87-make-dashboards-reusable-with-variables) · [8.8 Colocar juntos](#88-put-it-together)
 
 ### Pontuar experiência do usuário com `apdex`
 
@@ -29,7 +27,7 @@ SELECT apdex(duration, 500) AS apdex FROM Transaction FACET service TIMESERIES A
 
 Coloque-o em um widget **Número** com limites `0 → Red`, `0.7 → Amber`, `0.85 → Green`. A banda mais alta vence, então as notas baixas ficam vermelhas.
 
-### 8.2 Transformar contadores em taxas com `rate`
+### Transformar contadores em taxas com `rate`
 
 As entidades contadoras (✔ no [Dicionário de dados](#53-curated-metric-entities)) armazenam totais cada vez maiores. `rate(value)` os converte em valores por segundo. Ele precisa de `TIMESERIES`, e deve ser a única agregação:
 
@@ -41,7 +39,7 @@ SELECT rate(value) AS rxBytesPerSec FROM NetworkReceiveRate FACET host TIMESERIE
 SELECT rate(value) AS writeBytesPerSec FROM DiskWriteRate FACET host, device TIMESERIES AUTO LIMIT 10
 ```
 
->[!WARNING]
+> **Aviso**
 >
 > Sempre encare `rate()` por `host` (e por `device` para discos) ou filtre para um host. Sem isso, as leituras de diferentes hosts se misturam e o resultado é sem sentido.
 
@@ -192,7 +190,7 @@ SELECT count(*) FROM Transaction FACET service LIMIT 200
 
 As opções são atualizadas quando o locatário ou o seletor de hora é alterado e são classificadas em ordem alfabética. Quando a seleção atual não é mais válida, o primeiro valor (seleção única) ou todos os valores (seleção múltipla) são selecionados automaticamente. A consulta de uma variável não pode fazer referência a outras variáveis.
 
->[!WARNING]
+> **Aviso**
 >
 > **Limitação de compilação atual.** Ocorre substituição na grade do painel, mas a visualização do **Adicionar widget** e a **verificação de salvamento do lado do servidor** recebem o token `{{name}}` bruto e o rejeitam com `Unexpected character '{'`. Na prática:
 >
@@ -203,4 +201,4 @@ As opções são atualizadas quando o locatário ou o seletor de hora é alterad
 
 ### Coloque-o junto
 
-Agora você tem todos os blocos de construção usados nos [blueprints do painel](#dashboard-blueprints): blocos de KPI com limites, seções, percentis, Apdex, taxas, colunas de caso, histogramas, fórmulas e variáveis. Os blueprints mostram como combiná-los em painéis completos de sinais de ouro, triagem de erros, AEM, infraestrutura e JVM.
+Agora você tem todos os blocos de construção usados nos [blueprints do painel](../examples/dashboard-blueprint.md): blocos de KPI com limites, seções, percentis, Apdex, taxas, colunas de caso, histogramas, fórmulas e variáveis. Os blueprints mostram como combiná-los em painéis completos de sinais de ouro, triagem de erros, AEM, infraestrutura e JVM.

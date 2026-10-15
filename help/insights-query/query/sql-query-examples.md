@@ -1,10 +1,10 @@
 ---
 title: Exemplos de consulta SQL
 description: Explore exemplos de consulta SQL para telemetria do Observability Insights.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 4ad45ae5cbb2a7b348fdad1cd2681a72be12f5eb
 workflow-type: tm+mt
-source-wordcount: '306'
-ht-degree: 10%
+source-wordcount: '311'
+ht-degree: 9%
 ---
 
 ## Exemplos de consulta SQL
@@ -22,10 +22,9 @@ FROM Transaction SELECT percentile(duration, 95) AS p95 FACET service TIMESERIES
 
 Isso produz uma linha por serviço em um gráfico de linha, com os 10 serviços mais ocupados exibidos por padrão.
 
-Clique em cada exemplo abaixo para expandi-lo.
+### Consulta básica de solicitações de entrada
 
-<details>
-<summary><strong>Consulta básica de solicitações de entrada</strong></summary>
++++Exibir consulta
 
 Tempo médio de resposta, em milissegundos, de todas as solicitações de entrada:
 
@@ -33,10 +32,11 @@ Tempo médio de resposta, em milissegundos, de todas as solicitações de entrad
 SELECT average(duration) FROM Transaction
 ```
 
-</details>
++++
 
-<details>
-<summary><strong>Nomes de atributos que contêm pontos</strong></summary>
+### Nomes de atributos que contêm pontos
+
++++Exibir consulta
 
 Nomes com pontos não precisam ser citados:
 
@@ -44,10 +44,11 @@ Nomes com pontos não precisam ser citados:
 SELECT count(*) FROM Transaction WHERE http.statusCode >= 500 FACET http.route
 ```
 
-</details>
++++
 
-<details>
-<summary><strong>A consulta retornou várias colunas</strong></summary>
+### Consulta que retorna várias colunas
+
++++Exibir consulta
 
 Vários agregados em uma query se tornam colunas em uma Tabela:
 
@@ -55,10 +56,11 @@ Vários agregados em uma query se tornam colunas em uma Tabela:
 SELECT count(*) AS requests, average(duration) AS avgMs, percentile(duration, 95) AS p95, max(duration) AS maxMs FROM Transaction FACET service
 ```
 
-</details>
++++
 
-<details>
-<summary><strong>Agregados condicionais em uma passagem</strong></summary>
+### Agregados condicionais em uma passagem
+
++++Exibir consulta
 
 Total de erros e 5xx lado a lado:
 
@@ -66,10 +68,11 @@ Total de erros e 5xx lado a lado:
 SELECT count(*) AS total, count(*) FILTER (WHERE status = 'Error') AS errors, count(*) FILTER (WHERE http.statusCode >= 500) AS http5xx FROM Transaction FACET service
 ```
 
-</details>
++++
 
-<details>
-<summary><strong>Consultando uma métrica com curadoria</strong></summary>
+### Consulta a uma métrica com curadoria
+
++++Exibir consulta
 
 Média de CPU por host ao longo do tempo:
 
@@ -77,10 +80,11 @@ Média de CPU por host ao longo do tempo:
 SELECT average(value) AS cpu FROM CpuUtilization FACET host TIMESERIES AUTO
 ```
 
-</details>
++++
 
-<details>
-<summary><strong>Consultando qualquer métrica OpenTelemetry por nome</strong></summary>
+### Consulta de qualquer métrica OpenTelemetry por nome
+
++++Exibir consulta
 
 Usar `MetricGauge` / `MetricSum` para métricas sem uma entidade com curadoria:
 
@@ -88,7 +92,7 @@ Usar `MetricGauge` / `MetricSum` para métricas sem uma entidade com curadoria:
 SELECT latest(value) AS bytesUsed FROM MetricSum WHERE metric = 'jvm.memory.used' FACET host, pool
 ```
 
-</details>
++++
 
 <a id="what-sql-doesnt-do"></a>
 
@@ -97,15 +101,15 @@ SELECT latest(value) AS bytesUsed FROM MetricSum WHERE metric = 'jvm.memory.used
 O SQL é deliberadamente pequeno. Isso mantém as consultas seguras, rápidas e isoladas do locatário. Quando você precisar de um desses recursos, use a alternativa.
 
 | Recurso | Status | Alternativa |
-| ------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `SELECT *` | Não suportado | Liste os atributos desejados: `SELECT timestamp, name, duration, traceId …`. |
 | Combinação de atributos brutos e agregados | Não suportado | Use `FACET attr` ou `latest(attr)` / `earliest(attr)`. |
 | Matemática em `SELECT` (`a - b`, `count(*) / 60`) | Não suportado | Widget (painéis) de **Fórmula**. |
 | Associações e subconsultas | Não suportado | Widget de **Fórmula** ou dois widgets lado a lado. |
 | `HAVING` | Não suportado | `ORDER BY alias` + `LIMIT`. |
 | `COMPARE WITH` | Não suportado | Altere o seletor de hora ou coloque dois widgets em guias diferentes. |
-| `FACET CASES` | Não suportado | Uma coluna `count(*) FILTER (WHERE …)` por caso (consulte [Tutorial 3](#83-group-values-into-cases-with-filter)). |
-| `histogram()` | Não suportado | `FILTER` colunas em bucket (consulte [Tutorial 3](#84-build-a-latency-histogram)). |
+| `FACET CASES` | Não suportado | Uma coluna `count(*) FILTER (WHERE …)` por caso (consulte [Tutorial 3](../../tutorials/tutorial-3.md#group-values-into-cases-with-filter)). |
+| `histogram()` | Não suportado | `FILTER` colunas em bucket (consulte [Tutorial 3](../../tutorials/tutorial-3.md#build-a-latency-histogram)). |
 | `uniques()` / `keyset()` | Não suportado | `FACET attr LIMIT n` lista valores distintos. Consultas de descoberta listam métricas e atributos preenchidos. |
 | `RLIKE` (regex) | Não suportado | `LIKE` / `NOT LIKE` com os curingas `%` e `_`, ou `IN (…)`. |
 | Comentários (`--`, `//`, `/* */`) | Não suportado | Coloque notas no título do widget ou em um widget **Texto**. |

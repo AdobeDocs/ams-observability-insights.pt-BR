@@ -12,9 +12,9 @@ feature_v2:
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
     internal-label: Admin
-source-git-commit: e0cc17c9d725cad021ba99da4332bca176eae6db
+source-git-commit: d8c86bf4873a9eef6ce9bbcca5a545aa4e862e5f
 workflow-type: tm+mt
-source-wordcount: '533'
+source-wordcount: '518'
 ht-degree: 0%
 ---
 
@@ -65,6 +65,6 @@ A documentação está organizada em quatro áreas. Use as descrições abaixo p
 
 **Introdução** — Esta seção. Abrange acesso, provisionamento de conta, escopo de monitoramento e retenção de dados.
 
-**[Usar Insights de Observabilidade](../use-observability-insights.md)** — Orientação orientada a tarefas para investigação diária. Use [Aplicativos](../applications.md) quando o sintoma estiver voltado para o aplicativo: páginas lentas, picos de erro ou transações instáveis. Use [Hosts](../hosts.md) quando precisar determinar se a pressão de recursos no nível do host (CPU, memória, disco ou rede) explica o que você está vendo nos Aplicativos. Os fluxos de investigação passo a passo estão disponíveis em [Investigar problemas do aplicativo](../use-cases/investigate-application-issues.md) e [Investigar problemas de infraestrutura](../use-cases/investigate-infrastructure-issues.md).
+**[Usar Insights de Observabilidade](../use-observability-insights.md)** — Orientação orientada a tarefas para investigação diária. Use [Aplicativos](../applications.md) quando o sintoma estiver voltado para o aplicativo: páginas lentas, picos de erro ou transações instáveis. Use [Hosts](../hosts.md) quando precisar determinar se a pressão de recursos no nível do host (CPU, memória, disco ou rede) explica o que você está vendo nos Aplicativos.
 
 **[Perguntas Frequentes](../troubleshooting/common-questions.md)** — Perguntas comuns e pontos de entrada orientados por suporte para quando você não tiver certeza de onde começar ou precisar de respostas rápidas durante um incidente ativo.

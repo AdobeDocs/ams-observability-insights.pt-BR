@@ -1,7 +1,7 @@
 ---
 title: Dicionário de dados
 description: Faça referência às entidades e atributos disponíveis para consultas SQL de Insights de observação.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 91a61d33010192cedce7d40a45ffe86f32e4824b
 workflow-type: tm+mt
 source-wordcount: '598'
 ht-degree: 20%
@@ -14,8 +14,8 @@ Isso é cada entidade e atributo que você pode consultar. O catálogo ao vivo, 
 ### Rastrear entidades
 
 | Entidade | Contém | Escopo fixo | Rollups |
-| ------------- | --------------------------------------------------------- | ---------------------------- | ------------------------------------------ |
-| `Transaction` | Solicitações de entrada do servidor | `kind = Server` | 1m / 5m / 1h ([Desempenho](#performance)) |
+| ------------- | --------------------------------------------------------- | ---------------------------- | ------------------------------------------------------- |
+| `Transaction` | Solicitações de entrada do servidor | `kind = Server` | 1m / 5m / 1h ([Desempenho](../operate/performance.md)) |
 | `AppRequest` | Solicitações do consumidor de mensagens **e** do servidor de entrada | `kind IN (Server, Consumer)` | — |
 | `Span` | Cada span (servidor, cliente, produtor, consumidor, interno) | — | — |
 
