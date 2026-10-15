@@ -1,9 +1,9 @@
 ---
 title: Como consultar com SQL
 description: Saiba como escrever e executar consultas SQL em Observability Insights.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 148bf6480461a0109b221b8e7c2f9ab2035a7d68
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '557'
 ht-degree: 0%
 ---
 
@@ -15,7 +15,7 @@ Antes de usar qualquer ferramenta, é útil saber como ela funciona. Este docume
 
 A melhor maneira de usar o SQL é abrir o **Explorar** e experimentá-lo em seus próprios dados.
 
->[!TIP]
+> **Dica**
 >
 > SQL é somente leitura. Ele não pode alterar ou excluir dados, e cada consulta tem escopo para seu locatário.
 
@@ -41,7 +41,7 @@ FROM Transaction SELECT count(*) FACET service
 
 Isso conta solicitações por serviço, o que mostra quais serviços estão sendo relatados.
 
->[!IMPORTANT]
+> **Importante**
 >
 > **Descubra antes de compilar.** A disponibilidade de atributos depende de como cada serviço é instrumentado. Execute as [consultas de descoberta](#101-data-discovery) em um novo locatário primeiro para ver quais serviços, hosts, atributos e métricas realmente contêm dados.
 
@@ -92,6 +92,6 @@ Cada consulta retorna uma das quatro formas. A forma decide quais gráficos faze
 | **Explorar** | O seletor de tempo global. `SINCE`/`UNTIL` são ignorados quando um intervalo do seletor está ativo. |
 | **API sem um intervalo explícito** | `SINCE`/`UNTIL` na consulta, padronizando para a última hora. |
 
->[!NOTE]
+> **Nota**
 >
 > Como o seletor ganha nos painéis e em Explorar, este guia geralmente deixa `SINCE` fora das consultas do painel. Deve-se sempre definir um seletor de tempo para as consultas.

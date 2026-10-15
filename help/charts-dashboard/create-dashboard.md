@@ -1,9 +1,9 @@
 ---
 title: Criar um painel
 description: Saiba como criar, configurar, salvar e compartilhar painéis de Insights de observação.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 2e851e1a3d9f8fbdb220ecd0d37fba0f6b0188df
 workflow-type: tm+mt
-source-wordcount: '1129'
+source-wordcount: '1134'
 ht-degree: 1%
 ---
 
@@ -39,9 +39,9 @@ ht-degree: 1%
 | **Grade** | 12 colunas Arraste os widgets pela alça, redimensione a partir do canto (mínimo 2×2). |
 | **Cabeçalho do widget** (ao passar o mouse) | Baixar CSV, Baixar PNG, Editar, Duplicar, Remover, arrastar alça |
 
->[!IMPORTANT]
+> **Importante**
 >
-> **Salvar é explícito.** Alterações de layout, novos widgets, guias e variáveis permanecem no navegador até que você clique em **Salvar**. O botão mostra _Salvando... → Salvo_, ou _Falha ao salvar_ (consulte [Solução de problemas](#troubleshooting)).
+> **Salvar é explícito.** Alterações de layout, novos widgets, guias e variáveis permanecem no navegador até que você clique em **Salvar**. O botão mostra _Salvando... → Salvo_, ou _Falha ao salvar_ (consulte [Solução de problemas](../operate/troubleshooting.md)).
 
 ### Etapa 4: adicionar um widget
 
@@ -64,7 +64,7 @@ Clique em **Adicionar widget**. A caixa de diálogo tem três modos: **Consulta 
 3. Use o painel **Guia de consulta** para procurar entidades, atributos e exemplos.
 4. Clique em **Executar consulta**. Você verá que a consulta _`<Entity>`é válida_, uma visualização ao vivo e um resumo (`N rows · N time points · N groups`). Um aviso de _Série esparsa_ é exibido quando há menos de três pontos de tempo.
 
->[!TIP]
+> **Dica**
 >
 > O Construtor aborda as consultas mais comuns. Alternar para SQL para `apdex`, `percentage`, `rate`, `FILTER`, várias agregações, `OR`, `IN`, várias facetas ou `ORDER BY`.
 
@@ -101,7 +101,7 @@ Quando a linha única de um widget Número carrega um valor de texto (por exempl
 - **Observação**: texto simples (até 4.000 caracteres, linhas em branco preservadas). Use-o para links runbook, proprietários e definições de SLO. `{{variables}}` são renderizados.
 - **Cabeçalho da seção**: marque _Transformar em cabeçalho de seção_. Ela expande a largura total e sua divisa recolhe todos os widgets abaixo dela até o próximo cabeçalho da seção. Use-o para agrupamentos como **PUBLISH**, **AUTHOR** e **DISPATCHER**.
 
->[!TIP]
+> **Dica**
 >
 > Os títulos de widget que terminam em `- PUBLISH` ou `- AUTHOR` obtêm uma dica de cor sutil, o que facilita a verificação dos painéis do AEM por camada.
 
@@ -116,15 +116,15 @@ Quando a linha única de um widget Número carrega um valor de texto (por exempl
 
 ## Variáveis
 
-As variáveis permitem que um painel sirva a vários contextos, como um serviço, ambiente ou limite por vez. Eles são abordados detalhadamente no [Tutorial 3](#87-make-dashboards-reusable-with-variables).
+As variáveis permitem que um painel sirva a vários contextos, como um serviço, ambiente ou limite por vez. Eles são abordados detalhadamente no [Tutorial 3](../tutorials/tutorial-3.md#make-dashboards-reusable-with-variables).
 
->[!WARNING]
+> **Aviso**
 >
 > **Limitação conhecida na compilação atual:** `{{variables}}` funciona no widget **títulos** e **widgets de texto**. No widget **SQL**, eles são renderizados no painel, mas a pré-visualização **Adicionar widget** e a verificação **Salvar** do lado do servidor rejeitam o token `{{name}}` bruto com `Unexpected character '{'`. Até que isso seja corrigido, use valores literais em consultas de widget e use **Duplicar** para criar variantes.
 
 ## Widgets de fórmula
 
-Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(errors / total) * 100`. Use um quando um KPI precisar de mais de uma consulta, como uma taxa, espaço, uma soma de taxas ou uma taxa de gravação. Consulte [Tutorial 3](#86-combine-queries-with-formula-widgets).
+Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(errors / total) * 100`. Use um quando um KPI precisar de mais de uma consulta, como uma taxa, espaço, uma soma de taxas ou uma taxa de gravação. Consulte [Tutorial 3](../tutorials/tutorial-3.md#combine-queries-with-formula-widgets).
 
 ## Compartilhar, exportar e importar
 
@@ -135,9 +135,9 @@ Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(e
 | **Importar** | Carrega uma exportação JSON **no painel aberto**, substituindo suas guias e variáveis. Depois clique em **Salvar**. Dica: primeiro crie um painel vazio e, em seguida, importe para ele. |
 | **CSV / PNG** | Downloads por widget no cabeçalho do widget. |
 
->[!TIP]
+> **Dica**
 >
-> Exportar e importar permite que você controle a versão dos painéis no Git e promova um painel de um cliente para outro. O formato de arquivo está descrito no [Apêndice](#142-export-file-format).
+> Exportar e importar permite que você controle a versão dos painéis no Git e promova um painel de um cliente para outro. O formato de arquivo está descrito no [Apêndice](../operate/appendix.md).
 
 ## Dicas para desempenho de painéis e gráficos
 
@@ -146,4 +146,4 @@ Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(e
 - **Sempre `LIMIT` consultas facetadas**, especialmente em atributos de alta cardinalidade, como `urlPath`, `traceId` e `jcr.path`.
 - **Filtrar com antecedência** sobre atributos de baixa cardinalidade (`service`, `kind`, `status`).
 - **Prefira`TIMESERIES AUTO`** a compartimentos pequenos fixos e evite `TIMESERIES MAX`, exceto por alguns minutos.
-- **Criar tendências de longo alcance para rollups.** Consulte [Desempenho](#performance).
+- **Criar tendências de longo alcance para rollups.** Consulte [Desempenho](../operate/performance.md).

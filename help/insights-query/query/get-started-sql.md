@@ -1,9 +1,9 @@
 ---
 title: Introdução ao SQL
 description: Saiba como consultar a telemetria do Observability Insights usando SQL.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 148bf6480461a0109b221b8e7c2f9ab2035a7d68
 workflow-type: tm+mt
-source-wordcount: '684'
+source-wordcount: '687'
 ht-degree: 1%
 ---
 
@@ -16,7 +16,7 @@ ht-degree: 1%
 | **Aplica-se a** | Interface do usuário do Insights → **Explorar** e **Painéis** (painéis personalizados) |
 | **Público-alvo** | Engenheiros, SREs e usuários avançados que conhecem SQL |
 
->[!TIP]
+> **Dica**
 >
 > Todo bloco de código marcado como `sql` é uma consulta SQL que você pode colar diretamente no **Explorar → SQL** ou nos **Painéis → Adicionar widget → SQL**.
 
@@ -42,13 +42,13 @@ Usar SQL para:
 
 O SQL dá suporte a **consultas de eventos**, que retornam linhas de solicitação individuais, e **consultas agregadas**, que retornam totais, percentis, taxas, detalhamentos e séries de tempo.
 
->[!TIP]
+> **Dica**
 >
 > Os modelos em **Painéis → Criar painel** são criados inteiramente do SQL. Abra qualquer widget de modelo com o ícone de lápis para ver e aprender com sua consulta.
 
 ### O que você pode consultar
 
-O SQL pode consultar quatro famílias de dados. A lista completa está no [Dicionário de dados](#data-dictionary).
+O SQL pode consultar quatro famílias de dados. A lista completa está no [Dicionário de dados](/help/references/data-dictionary.md).
 
 | Família | Entidades | Perguntas típicas |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
@@ -57,7 +57,7 @@ O SQL pode consultar quatro famílias de dados. A lista completa está no [Dicio
 | **Métricas genéricas** | `MetricGauge`, `MetricSum` | Qualquer métrica OpenTelemetry por nome, descoberta de métrica |
 | **Composição de extensão pré-agregada** | `SpanBreakdown` | Quais operações secundárias compõem uma transação |
 
->[!NOTE]
+> **Nota**
 >
 > Logs, definições de alerta e relações de inventário não estão disponíveis.
 
@@ -97,7 +97,7 @@ FROM    Entity
 Estas são as regras que o SQL segue:
 
 | Regra | Detalhes |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Cláusulas obrigatórias** | `SELECT` e `FROM` são obrigatórios. Qualquer outra cláusula é opcional. Você pode começar com: `FROM Transaction SELECT count(*)` também é válido. |
 | **Ordem da cláusula** | As cláusulas depois de `FROM` podem aparecer em qualquer ordem. Cada cláusula pode aparecer apenas uma vez. |
 | **Tamanho da consulta** | Uma consulta deve ter 4 KB ou menos. |
@@ -106,5 +106,5 @@ Estas são as regras que o SQL segue:
 | **Literais** | Sequências, números (incluindo negativos e decimais), `TRUE`, `FALSE`, `NULL`. |
 | **Nomes de atributos** | Os nomes podem conter letras, dígitos, `_` e `.` (por exemplo, `http.statusCode`). Não é necessário usar backticks. |
 | **Agregações vs. atributos** | Uma consulta seleciona atributos brutos (uma lista de eventos) ou agregações, nunca ambos. Para agrupar, use `FACET`. |
-| **Janela de tempo** | O padrão é a última hora. O máximo é de 31 dias. Nos painéis e em Explorar, o **seletor de horas** define a janela (consulte [Janela de horas](#time-window-precedence)). |
-| **Sem suporte** | Ponto e vírgula, comentários, subconsultas, junções, `SELECT *`, matemática entre atributos em `SELECT`, `HAVING`, `COMPARE WITH`. Consulte [O que o SQL não faz](#what-sql-doesnt-do) para ver as alternativas. |
+| **Janela de tempo** | O padrão é a última hora. O máximo é de 31 dias. Nos painéis e em Explorar, o **seletor de horas** define a janela (consulte [Janela de horas](how-to-query-sql.md#time-window-precedence)). |
+| **Sem suporte** | Ponto e vírgula, comentários, subconsultas, junções, `SELECT *`, matemática entre atributos em `SELECT`, `HAVING`, `COMPARE WITH`. Consulte [O que o SQL não faz](sql-query-examples.md#what-sql-doesnt-do) para ver as alternativas. |
