@@ -40,7 +40,7 @@ ht-degree: 4%
 |                 | [13. Solução de problemas](#13-troubleshooting) | Cada mensagem de erro, o que ela significa e como corrigi-la |
 |                 | [14. Apêndice](#14-appendix) | Limites, formato de arquivo de exportação, folha de características de uma página |
 
-# Introdução
+&#x200B;# Introdução
 
 ## &#x200B;1. Introdução ao SQL: o idioma da telemetria
 
@@ -505,7 +505,7 @@ Uma fórmula combina 2-6 consultas SQL nomeadas aritmeticamente, por exemplo `(e
 
 [↑ Voltar ao início](#top)
 
-# Referência
+&#x200B;# Referência
 
 ## &#x200B;4. Referência SQL
 
@@ -1194,7 +1194,7 @@ Cada entidade com curadoria envolve uma métrica OpenTelemetry com o filtro e a 
 
 [↑ Voltar ao início](#top)
 
-# Tutoriais
+&#x200B;# Tutoriais
 
 ## &#x200B;6. Tutorial 1: Suas primeiras consultas
 
@@ -1828,7 +1828,7 @@ SELECT percentile(duration, 95) AS p95 FROM Transaction FACET host ORDER BY p95 
 
 [↑ Voltar ao início](#top)
 
-# Exemplos
+&#x200B;# Exemplos
 
 ## &#x200B;10. Guia de consulta
 
@@ -3385,7 +3385,7 @@ SELECT count(*) AS calls, percentile(duration, 95) AS p95, count(*) FILTER (WHER
 
 [↑ Voltar ao início](#top)
 
-# Operar
+&#x200B;# Operar
 
 ## &#x200B;12. Desempenho
 
