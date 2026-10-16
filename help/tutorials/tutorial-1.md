@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial 1: Suas primeiras consultas'
 description: Escreva suas primeiras consultas SQL com base na telemetria do Observability Insights.
-source-git-commit: 52cc24792c47727700428be58b5bbb2a5c7223d2
+source-git-commit: 09c8edf64e744ff0c16acd0d5905fc6796490f82
 workflow-type: tm+mt
-source-wordcount: '552'
+source-wordcount: '549'
 ht-degree: 0%
 ---
 
@@ -33,7 +33,7 @@ SELECT timestamp, service, name, duration FROM Transaction LIMIT 10
 
 As linhas são classificadas pela primeira coluna, em ordem decrescente, portanto, colocar `timestamp` primeiro fornece as solicitações mais recentes na parte superior.
 
-> **Nota**
+>[!NOTE]
 >
 > O SQL não tem `SELECT *`. Os atributos de listagem mantêm os resultados pequenos e legíveis. O [Dicionário de dados](#data-dictionary) e o preenchimento automático no editor mostram o que está disponível.
 
@@ -67,7 +67,7 @@ Separe as agregações com vírgulas e nomeie cada uma com `AS`:
 SELECT count(*) AS requests, average(duration) AS avgMs, max(duration) AS maxMs FROM Transaction
 ```
 
-> **Dica**
+>[!TIP]
 >
 > Os aliases se tornam cabeçalhos de coluna e rótulos de legenda, e são o que você menciona em `ORDER BY`. Aprenda a nomear cada agregado.
 
@@ -125,7 +125,7 @@ Usar `LIKE` com `%` para correspondências parciais:
 SELECT count(*) AS contentRequests FROM Transaction WHERE urlPath LIKE '/content/%'
 ```
 
-> **Nota**
+>[!NOTE]
 >
 > Os valores da cadeia de caracteres diferenciam maiúsculas de minúsculas e usam aspas simples: `'Error'`, não `"Error"` ou `'error'`. Substitua `checkout` com um serviço de seu locatário. A próxima etapa mostra como listá-los.
 

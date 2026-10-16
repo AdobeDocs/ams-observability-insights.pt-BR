@@ -1,9 +1,9 @@
 ---
 title: Resolução de problemas
 description: Solução de problemas de consultas SQL, gráficos e painéis no Observability Insights.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: 873e7b9f279c3276fc0197969d667d40d022968a
 workflow-type: tm+mt
-source-wordcount: '337'
+source-wordcount: '335'
 ht-degree: 5%
 ---
 
@@ -19,14 +19,14 @@ Mensagens de erro aparecem no editor quando você **Valida** ou **Executa** uma 
 | `FACET and TIMESERIES require an aggregate query` | Consulta de evento com FACET/TIMESERIES | Use uma agregação. |
 | `FACET supports at most five attributes` | > 5 facetas | Reduzir. |
 | `average requires a numeric attribute` | e.g. `average(service)` | Use `uniqueCount`/`latest` ou um atributo numérico. |
-| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](#53-curated-metric-entities)); para medidores, usar `derivative()`. |
+| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](../references/data-dictionary.md#curated-metric-entities)); para medidores, usar `derivative()`. |
 | `rate cannot be combined with other aggregates` | Vários itens com `rate()` | Um `rate()` por widget; combinar com uma Fórmula. |
 | `percentOfTotal cannot be combined with TIMESERIES` | — | Remover SÉRIE TEMPORAL. |
 | `apdex requires an entity with a status attribute` | `apdex` em uma entidade de métrica | Use `Transaction`/`Span`/`AppRequest`. |
 | `ORDER BY 'x' must reference a selected value or alias` | Ordenação por algo não selecionado | Alias: a agregação e a ordem por alias. |
 | `IN requires between 1 and 100 values` | — | Dividir ou usar `LIKE`. |
 | `Use IS NULL or IS NOT NULL for null comparisons` | `attr = NULL` | Usar `IS NULL`. |
-| `Unexpected character '{'` | `{{variable}}` na pré-visualização do widget Adicionar ou ao salvar | Consulte o [Tutorial 3, etapa 8.7](#87-make-dashboards-reusable-with-variables) - Limitação. |
+| `Unexpected character '{'` | `{{variable}}` na pré-visualização do widget Adicionar ou ao salvar | Consulte [Tutorial 3](../tutorials/tutorial-3.md#make-dashboards-reusable-with-variables) limitação. |
 | `Unexpected character ';'` / `'"'` | Ponto e vírgula ou aspas duplas | Remover `;`; usar aspas simples. |
 | `Expected a positive duration such as 30 minutes` | `TIMESERIES 5m` | Gravar `TIMESERIES 5 minutes`. |
 | `Time range cannot exceed 31 days` | Seletor > 31 d | Restrinja a janela. |
@@ -36,7 +36,7 @@ Mensagens de erro aparecem no editor quando você **Valida** ou **Executa** uma 
 | `Unknown query name 'x' - must be one of: …` | A fórmula faz referência a um nome ausente | Corresponder nomes exatamente (diferencia maiúsculas de minúsculas). |
 | **Falha ao salvar** | Uma consulta de widget é inválida no lado do servidor (frequentemente `{{var}}`) | Abra cada widget editado recentemente e **execute**; corrija ou remova o widget inválido. |
 | _Selecione um valor para{{x}}_ | A variável não tem seleção | Escolha um valor na barra de variáveis. |
-| _Nenhuma atividade nos últimos ..._ | Nenhuma linha na janela | Amplie a janela; verifique os filtros com uma consulta de descoberta ([Descoberta de dados](#101-data-discovery)). |
+| _Nenhuma atividade nos últimos ..._ | Nenhuma linha na janela | Amplie a janela; verifique os filtros com uma consulta de descoberta ([Descoberta de dados](../examples/query-cookbook.md#data-discovery)). |
 | Linhas quebradas em pontos | Compartimento menor que a cadência de dados | Use `TIMESERIES AUTO` (≥ 2 min) ou um gráfico de barras. |
 | Faceta mostra um grupo de sequência vazia | Atributo ausente em algumas linhas | Adicionar `WHERE attr != ''`. |
 | _Este painel SQL herdado não é mais executado_ | Painel do construtor Raw-SQL antigo | Editar → reconstruir no SQL. |

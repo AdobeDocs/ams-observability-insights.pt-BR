@@ -1,7 +1,7 @@
 ---
 title: Painel e documentação de consulta
 description: Documentação de referência para consultas e painéis SQL de Insights de Observação.
-source-git-commit: 91a61d33010192cedce7d40a45ffe86f32e4824b
+source-git-commit: 873e7b9f279c3276fc0197969d667d40d022968a
 workflow-type: tm+mt
 source-wordcount: '10254'
 ht-degree: 4%
@@ -2957,7 +2957,7 @@ SELECT rate(value) AS rxBytesPerSec FROM NetworkReceiveRate FACET host TIMESERIE
 SELECT rate(value) AS txBytesPerSec FROM NetworkTransmitRate FACET host TIMESERIES AUTO
 ```
 
-**W20 · Total de E/S de rede para um host (fórmula)** — Widget de fórmula, L, `bytes/s`, 12×4. As fórmulas não podem `FACET` e `rate()` devem ser enviadas para um host (consulte [Entidades de métrica preparadas](#53-curated-metric-entities)), portanto, fixe o host — substitua `web-publish-01` por um nome de host real do W5.
+**W20 · Total de E/S de rede para um host (fórmula)** — Widget de fórmula, L, `bytes/s`, 12×4. As fórmulas não podem `FACET` e `rate()` devem ser enviadas para um host (consulte [Entidades de métrica preparadas](data-dictionary.md#curated-metric-entities)), portanto, fixe o host — substitua `web-publish-01` por um nome de host real do W5.
 
 Consulta `netRx`:
 
@@ -3245,7 +3245,7 @@ Fórmula:
 limit - used
 ```
 
-**W5 · Taxa de saída/entrada de rede para um host** — Fórmula, L (fixar o host; consulte [Entidades de métrica preparadas](#53-curated-metric-entities))
+**W5 · Taxa de saída/entrada de rede para um host** — Fórmula, L (fixar o host; consulte [Entidades de métrica preparadas](data-dictionary.md#curated-metric-entities))
 
 Consulta `rx`:
 
@@ -3430,7 +3430,7 @@ Mensagens de erro aparecem no editor quando você **Valida** ou **Executa** uma 
 | `FACET and TIMESERIES require an aggregate query` | Consulta de evento com FACET/TIMESERIES | Use uma agregação. |
 | `FACET supports at most five attributes` | > 5 facetas | Reduzir. |
 | `average requires a numeric attribute` | e.g. `average(service)` | Use `uniqueCount`/`latest` ou um atributo numérico. |
-| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](#53-curated-metric-entities)); para medidores, usar `derivative()`. |
+| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](data-dictionary.md#curated-metric-entities)); para medidores, usar `derivative()`. |
 | `rate cannot be combined with other aggregates` | Vários itens com `rate()` | Um `rate()` por widget; combinar com uma Fórmula. |
 | `percentOfTotal cannot be combined with TIMESERIES` | — | Remover SÉRIE TEMPORAL. |
 | `apdex requires an entity with a status attribute` | `apdex` em uma entidade de métrica | Use `Transaction`/`Span`/`AppRequest`. |

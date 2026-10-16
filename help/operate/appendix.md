@@ -1,15 +1,13 @@
 ---
 title: Apêndice
 description: Informações suplementares de referência para consultas e painéis SQL de Insights de Observabilidade.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: c45d62d2af62e6bd0c88e210b31c8954b75533be
 workflow-type: tm+mt
-source-wordcount: '145'
-ht-degree: 5%
+source-wordcount: '131'
+ht-degree: 6%
 ---
 
 ## Apêndice {#appendix}
-
-**Neste documento:** [14.1 Limites](#141-limits) · [14.2 Formato de arquivo de exportação](#142-export-file-format) · [14.3 Folha de características de uma página](#143-one-page-cheat-sheet)
 
 ### Limites
 

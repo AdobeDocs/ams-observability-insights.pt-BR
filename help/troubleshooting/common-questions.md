@@ -12,9 +12,9 @@ feature_v2:
 role_v2:
   - id: c66ffd68-0f65-42bb-aa23-b4020f12e0bd
     internal-label: Admin
-source-git-commit: e0cc17c9d725cad021ba99da4332bca176eae6db
+source-git-commit: ba4f816187e77f3f7b708942b3f14535417c2fdc
 workflow-type: tm+mt
-source-wordcount: '186'
+source-wordcount: '253'
 ht-degree: 0%
 ---
 
@@ -37,3 +37,11 @@ Comece com [Monitoramento do Desempenho de Aplicativos](/help/applications.md) p
 ## Quais dados os Insights de observação realmente coletam? {#what-data-is-collected}
 
 Consulte [Cobertura, ambientes e retenção de dados](../get-started/coverage-and-data.md) para obter informações sobre escopo de monitoramento, representação de aplicativos, períodos de retenção e implicações operacionais.
+
+## Por que posso fazer logon com outros navegadores, mas não com o Google Chrome?
+
+Para permitir cookies de terceiros para o Observability Insights e tentar fazer logon novamente:
+
+1. Para acessar as configurações de cookie, abra `chrome://settings/cookies` no Google Chrome.
+2. Para permitir cookies para o Observability Insights, em **Sites com permissão para usar cookies de terceiros**, selecione **Adicionar** e insira `https://insights.adobecqms.net`.
+3. Para verificar se o problema foi resolvido, faça logon no Observability Insights em uma janela incógnita.

@@ -1,17 +1,15 @@
 ---
 title: Guia de consulta
 description: Use receitas de consulta SQL para investigar a telemetria de aplicativos e infraestrutura em Insights de capacidade de observação.
-source-git-commit: 143a9567da06f0137ef690795cfbc41bda1780ca
+source-git-commit: ae94813d8db77f7d5795add161a7fbfd7427c050
 workflow-type: tm+mt
-source-wordcount: '580'
+source-wordcount: '554'
 ht-degree: 0%
 ---
 
 ## Guia de consulta {#query-cookbook}
 
 O guia é uma biblioteca de consultas prontas para uso, agrupadas por tópico. Cada consulta é precedida pelo tipo de gráfico mais adequado, em **negrito**. As cláusulas de tempo são deixadas de fora porque o seletor de tempo controla a janela.
-
-**Neste documento:** [10.1 Descoberta de dados](#101-data-discovery) · [10.2 Taxa de transferência](#102-throughput) · [10.3 Latência](#103-latency) · [10.4 Erros](#104-errors) · [10.5 Apdex](#105-apdex--user-experience) · [10.6 Serviços e hosts](#106-services-hosts--instances) · [10.7 Dependências](#107-downstream-dependencies) · [10.8 AEM](#108-aem-adobe-experience-manager) · [10.9 Infraestrutura](#109-infrastructure) · [10.10 JVM](#1010-jvm--runtime)
 
 >[!TIP]
 >
