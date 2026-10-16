@@ -1,7 +1,7 @@
 ---
 title: Resolução de problemas
 description: Solução de problemas de consultas SQL, gráficos e painéis no Observability Insights.
-source-git-commit: c45d62d2af62e6bd0c88e210b31c8954b75533be
+source-git-commit: 873e7b9f279c3276fc0197969d667d40d022968a
 workflow-type: tm+mt
 source-wordcount: '335'
 ht-degree: 5%
@@ -19,7 +19,7 @@ Mensagens de erro aparecem no editor quando você **Valida** ou **Executa** uma 
 | `FACET and TIMESERIES require an aggregate query` | Consulta de evento com FACET/TIMESERIES | Use uma agregação. |
 | `FACET supports at most five attributes` | > 5 facetas | Reduzir. |
 | `average requires a numeric attribute` | e.g. `average(service)` | Use `uniqueCount`/`latest` ou um atributo numérico. |
-| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](#53-curated-metric-entities)); para medidores, usar `derivative()`. |
+| `rate requires TIMESERIES` / `rate is only available for counter measures` | `rate()` sem SÉRIE TEMPORAL ou em um medidor | Adicionar `TIMESERIES AUTO`; usar uma entidade de contador ✔ ([Entidades de métrica preparadas](../references/data-dictionary.md#curated-metric-entities)); para medidores, usar `derivative()`. |
 | `rate cannot be combined with other aggregates` | Vários itens com `rate()` | Um `rate()` por widget; combinar com uma Fórmula. |
 | `percentOfTotal cannot be combined with TIMESERIES` | — | Remover SÉRIE TEMPORAL. |
 | `apdex requires an entity with a status attribute` | `apdex` em uma entidade de métrica | Use `Transaction`/`Span`/`AppRequest`. |
