@@ -1,28 +1,15 @@
 ---
 title: Blueprints de painel
 description: Crie painéis de insights de observação usando blueprints para monitoramento de aplicativos e infraestrutura.
-source-git-commit: 873e7b9f279c3276fc0197969d667d40d022968a
+source-git-commit: 94e108d029b04bf4f04aec3fb8b949705c4005e1
 workflow-type: tm+mt
-source-wordcount: '1324'
+source-wordcount: '1196'
 ht-degree: 1%
 ---
 
 ## Blueprints de painel {#dashboard-blueprints}
 
 Cada blueprint é um painel de controle completo e complexo. Ele lista a meta, a guia e o layout da seção, e cada widget com seu tipo de gráfico, unidade, limites, tamanho e consulta. Os tamanhos são `width×height` na grade de 12 colunas. Crie cada um de cima para baixo e arraste para ajustar.
-
-| Blueprint | Público-alvo | Realces |
-| ------------------------------------------------------------------------------------ | --------------------- | ---------------------------------------------------------------------------------- |
-| [11.1 Sinais dourados/SLO](#111-golden-signals--slo-board) | SRE, de plantão | Blocos KPI com limites, Apdex, % de erro, saturação |
-| [11.2 Triagem de erros](#112-error-triage-board) | Em chamada | Classes de erro, pontos de acesso 5xx, solicitações com falha com IDs de rastreamento |
-| [Detalhamento de Latência 11.3](#113-latency-deep-dive-board) | Engenheiros de desempenho | Percentis, intervalos de latência, variabilidade, composição de transação, rastreamentos mais lentos |
-| [11.4 Dependências Downstream](#114-downstream-dependencies-board) | Proprietários do serviço | HTTP de saída, BD, mensagens, RPC |
-| [Autor/Publicação do AEM 11.5/Dispatcher](#115-aem-author--publish--dispatcher-board) | Equipes do AEM | Seções por camada, Sling/JSP/JCR, carga do dispatcher |
-| [11.6 Capacidade de infraestrutura](#116-infrastructure-capacity-board) | Plataforma/capacidade | Modos CPU, memória, disco, taxas de rede, fórmulas |
-| [11.7 Integridade do JVM](#117-jvm-health-board) | Equipes do Java | % de fórmulas de heap, heap por host e pool, threads, JVM CPU |
-| [Mural Executivo/NOC de 11.8](#118-executive--noc-wall-board) | NOC, liderança | Blocos KPI, fórmula de disponibilidade, tráfego por camada, observação SLO |
-| [Taxas e espaço livre de 11.9](#119-ratios--headroom-board-formula-showcase) | Todos | Exibição de widget de fórmula |
-| [11.10 Gerenciador de Serviços](#1110-service-explorer-variable-driven) | Todas as equipes | Orientado por variáveis, reutilizável |
 
 **Legenda do gráfico:** **N** = Número, **L** = Linha, **A** = Área, **B** = Barra, **P** = Pizza, **T** = Tabela.
 
